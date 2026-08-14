@@ -1,0 +1,22 @@
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Editors ###
+.vscode/
+.idea/
+*.swp
+
+### Node (if tooling is added later) ###
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+### Jekyll (GitHub Pages default) ###
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+### Env / secrets ###
+.env
+.env.local
