@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An RSE Is Born · Chen Wang</title>
+<meta name="description" content="A personal, somewhat accidental journey into research software engineering: what I got wrong, what I learned, and how my understanding of the job has changed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/writing/" aria-current="page">Writing</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/writing/">Writing</a><span class="sep">·</span>September 2026</p>
+  <h1 class="page-title">An RSE Is Born: A Personal Journey into Research Software Engineering</h1>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#no-good-practice">The no-good-practice years</a></li>
+    <li><a href="#accidentally-learned">I accidentally learned software engineering</a></li>
+    <li><a href="#research-makes-messy">Then research makes everything messy again</a></li>
+    <li><a href="#what-is-our-job">What exactly is our job?</a></li>
+    <li><a href="#people-part">The people part is harder</a></li>
+    <li><a href="#not-everything-ships">Not everything needs to ship</a></li>
+    <li><a href="#still-learning">I'm still learning the job</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>This essay grew out of a talk I gave a few years ago about my somewhat accidental journey into research software engineering: what I learned along the way, what I got wrong, and how my understanding of the job has changed.</p>
+
+    <p>I didn't set out to become a research software engineer. I think few of us did. I'm not sure I even knew the job existed back then.</p>
+
+    <p>I started in atmospheric science, where programming was simply something you did because the science required it. My first real code was MATLAB in 2011, then Fortran, then Python. Somewhere along the way, I started spending more time building software than doing the research it was originally supposed to support. In 2018, I found out there was a name for people who did this: research software engineer.</p>
+
+    <p>I had no formal computer science training, and for a while that was painfully obvious.</p>
+
+    <h2 id="no-good-practice">The no-good-practice years</h2>
+    <p>Before I learned anything about software engineering, I was productive in some truly terrible ways.</p>
+
+    <p>I emailed code and data back and forth as attachments. I wrote code whose main design requirement was that it run. I once ran jobs on an HPC head node and ended up blocking hundreds of users until an administrator emailed me to ask what I was doing. My Fortran contained enough goto statements that colleagues started calling it "goto hell." Function names were whatever made sense to me at 2 a.m., occasionally in Mandarin pinyin.</p>
+
+    <p>None of this felt unusual at the time. I was a graduate student trying to answer research questions, and code was just one of the tools. Nobody had sat me down and explained version control, architecture, testing, or why <code>aaa2_v1</code> might eventually become a problem.</p>
+
+    <p>I think about this whenever I encounter terrible research code now. Sometimes the person who wrote it isn't careless. Nobody ever taught them another way.</p>
+
+    <h2 id="accidentally-learned">I accidentally learned software engineering</h2>
+    <p>My education was mostly backwards: I learned things when a project forced me to.</p>
+
+    <p>AWS became an accidental curriculum in VMs, Docker, databases, APIs, backends, frontends, and eventually deployment. Git went from something mysterious to something I used every day. Then came testing, linting, CI/CD, code review, and all the things that initially seemed like extra work until I had broken enough software to understand why they existed.</p>
+
+    <p>There were plenty of intermediate stages. A funny story my boss still tells is that I built an entire application in Notepad++ and a terminal because I didn't know IDEs existed. A senior researcher had recommended Notepad++ to me, and at the time that already felt like a major upgrade from a plain text editor. My debugger was mostly print, and I learned security the hard way too. I once committed AWS credentials to a public repository, only to have them picked up by attackers who promptly spun up every resource they could for crypto mining.</p>
+
+    <p>I also still have an email from 2016 where I asked a colleague, in considerable detail, how POST and PUT work. I keep that email deliberately. It reminds me how far I've come, and that expertise always has a beginning.</p>
+
+    <p>Most importantly, somewhere during all of this, I had a fairly obvious realization: software engineering wasn't really about becoming better at writing code. The harder parts were designing the system, organizing the work, testing what we built, documenting why we built it that way, and making it possible for someone other than the original developer to understand it later.</p>
+
+    <h2 id="research-makes-messy">Then research makes everything messy again</h2>
+    <p>Learning software engineering practices was one thing. Applying them to research projects was another.</p>
+
+    <p>Research software rarely arrives with a clean specification. Project sizes vary wildly, goals move, domains change, and the division of labor depends on whoever happens to know enough about the problem at the time. Sometimes we design the product; sometimes we discover it while building it. Sometimes we use Agile; sometimes we use "our version of Agile." Sometimes there are proper sprints and releases, and sometimes new research results change what the software needs to do next week.</p>
+
+    <p>I used to think the goal was to figure out the correct software engineering process and apply it consistently. I'm less convinced of that now. Research software needs rigor, but it also needs proportionality. A five-year platform with hundreds of users and a three-month prototype for one research question probably shouldn't be engineered the same way.</p>
+
+    <p>Sometimes software is infrastructure. Sometimes it's an experiment. And sometimes it's okay for research software to die.</p>
+
+    <p>That last part took me longer to appreciate. We talk a lot about sustainability, and rightly so, but not every research prototype needs years of maintenance, perfect architecture, extensive CI/CD, or a community around it. Sometimes the software answered the question it was built to answer. The grant ends, the research moves on, and so does the code.</p>
+
+    <p>The difficult part is knowing which kind of project you're building before accidentally treating one like the other.</p>
+
+    <h2 id="what-is-our-job">What exactly is our job?</h2>
+    <p>Industry software titles have never mapped particularly well onto our work.</p>
+
+    <p>Frontend developer? Sometimes. Backend? Sure. Infrastructure? When necessary. Data visualization, APIs, authentication, Kubernetes, user interfaces, databases, scientific workflows, I've ended up doing whatever sat between the research idea and a working system.</p>
+
+    <p>And then there's the old curse: once you start doing frontend work, you somehow never escape frontend work.</p>
+
+    <p>Over time, domain expertise accumulates almost accidentally too. You work on one type of problem, then another project needs something similar, and eventually people start asking you questions because you happen to remember why something was done four years ago.</p>
+
+    <p>That makes "full stack" feel almost too narrow. An RSE can be part developer, part domain collaborator, part architect, part project manager, and occasionally the institutional memory of a project nobody else remembers.</p>
+
+    <h2 id="people-part">The people part is harder</h2>
+    <p>For all the technologies I've learned, some of the hardest problems still reduce to three embarrassingly simple questions:</p>
+
+    <p>Are we talking about the same thing? Who's doing what? What exactly are we trying to achieve?</p>
+
+    <p>Research software sits between people who often think about the same system very differently. A researcher describes what something means scientifically; a developer thinks about what the system needs to do computationally; a designer thinks about what the user needs to see. Everybody can leave the same meeting believing they agreed.</p>
+
+    <p>I've become a big fan of making something visible early. A mockup, diagram, or ugly prototype can settle a conversation much faster than another hour of discussing requirements.</p>
+
+    <p>Over time, I've come to think that translation is one of the most important RSE skills: not just translating science into code, but translating between people.</p>
+
+    <h2 id="not-everything-ships">Not everything needs to ship</h2>
+    <p>Research software varies enormously in what it needs to become. Some projects grow into long-lived platforms with users, support, publications, deployments, and new funding. Others exist to answer one research question, support one grant, or test one idea, and were never meant to be shipped at all.</p>
+
+    <p>Part of the RSE job is learning to tell the difference. Sustainability has a cost, and so does over-engineering something that was always meant to be temporary. At the same time, a "quick prototype" has a funny way of becoming infrastructure once people start depending on it.</p>
+
+    <p>Maybe RSEs need our own version of the Serenity Prayer: the patience to let some software die, the persistence to sustain what should live, and the wisdom to know the difference.</p>
+
+    <h2 id="still-learning">I'm still learning the job</h2>
+    <p>More than a decade after that first MATLAB code, I'm still not sure there is one clean definition of an RSE.</p>
+
+    <p>I know much more about software engineering than I did in 2011, but experience has also taught me that not every project needs every best practice. I'm more interested now in choosing the right amount of engineering for the research, the users, the funding, and the expected lifetime of what we're building.</p>
+
+    <p>And the job keeps changing. AI is already changing how much code one person can produce and what researchers can prototype without us. Infrastructure changes. Research changes. The boundaries between developer, architect, domain expert, and project manager keep getting fuzzier.</p>
+
+    <p>Maybe that's appropriate for a profession many of us stumbled into in the first place. I didn't become an RSE because I followed a career plan. I became one by repeatedly encountering something I didn't know how to do, learning enough to do it, and then discovering something else behind it that I didn't understand yet.</p>
+
+    <p>Apparently, I'm still doing that.</p>
+
+    <p>"I took a bit of a detour into software engineering" has been my GitHub description for almost a decade. Looking back, I think I've enjoyed the detour, and the view along the way.</p>
+  </article>
+</div>
+
+<footer>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</body>
+</html>
