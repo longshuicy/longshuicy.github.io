@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contributing Into the Codebase · Chen Wang</title>
+<meta name="description" content="A guide for designers and other collaborators joining the dev workflow: the git/GitHub loop in plain English, and the fundamentals of how a basic web app works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/writing/" aria-current="page">Writing</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/writing/">Writing</a><span class="sep">·</span>September 2026</p>
+  <h1 class="page-title">Contributing Into the Codebase: An AI Guide for Non-Developers</h1>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#workflow-loop">Part 1: The Workflow Loop</a>
+      <ul class="toc-sub">
+        <li><a href="#step-1">1. Clone the repo</a></li>
+        <li><a href="#step-2">2. Create an issue</a></li>
+        <li><a href="#step-3">3. Create a branch</a></li>
+        <li><a href="#step-4">4. Work on it</a></li>
+        <li><a href="#step-4-1">4.1 Enabling Figma MCP</a></li>
+        <li><a href="#step-5">5. Commit locally</a></li>
+        <li><a href="#step-6">6. Push</a></li>
+        <li><a href="#step-7">7. Open a PR &amp; ask for review</a></li>
+        <li><a href="#step-8">8. Address review comments</a></li>
+        <li><a href="#step-9">9. Merge</a></li>
+        <li><a href="#step-10">Run the dev stack locally</a></li>
+        <li><a href="#quick-exercise">Quick exercise</a></li>
+        <li><a href="#starter-prompts">Starter prompt kit</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+      </ul>
+    </li>
+    <li><a href="#web-app-knowledge">Part 2: Fundamental Web App Knowledge</a>
+      <ul class="toc-sub">
+        <li><a href="#big-picture">The big picture</a></li>
+        <li><a href="#frontend">Frontend</a></li>
+        <li><a href="#backend">Backend</a></li>
+        <li><a href="#server">Server</a></li>
+        <li><a href="#network-api">Network / API</a></li>
+        <li><a href="#database">Database</a></li>
+        <li><a href="#auth">Authentication vs. authorization</a></li>
+        <li><a href="#environments">Environments</a></li>
+        <li><a href="#real-world-example">Real-world example</a></li>
+        <li><a href="#terminology">Terminology</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <article class="prose">
+    <p>The team is working on one shared codebase: the git/GitHub system exists so multiple people can change it at the same time without overwriting each other. Claude Code is the interface for doing that in plain English instead of typing commands.</p>
+
+    <div class="note">
+      <p>Everything below is written as <strong>things you'd actually say to Claude Code</strong>, not commands to memorize.</p>
+    </div>
+
+    <h2 id="workflow-loop">Part 1: The Workflow Loop</h2>
+    <p><strong>Sequence: clone → issue → branch → work → commit → push → PR/review → address comments → merge.</strong></p>
+    <p class="quiet">Run locally isn't a step in that line; it happens alongside "work," any time you want to check what you're building. Treat it as something you reach for throughout the loop, not a box to check off at the end.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 900 300" role="img" aria-labelledby="git-diagram-title">
+        <title id="git-diagram-title">A timeline showing main branch running straight across, with a feature branch dipping down to make three commits, then merging back after a PR and review.</title>
+        <style>
+          .git-line { stroke: var(--text); stroke-width: 3; fill: none; }
+          .git-branch { stroke: var(--accent); stroke-width: 3; fill: none; }
+          .git-dot-main { fill: var(--text); }
+          .git-dot-branch { fill: var(--accent); }
+          .git-label { font: 14px var(--body); fill: var(--text); }
+          .git-label-muted { font: 11px var(--body); fill: var(--muted); }
+          .git-label-main { font: 600 14px var(--body); fill: var(--text); }
+          .git-label-branch { font: 600 14px var(--body); fill: var(--accent); }
+          .git-pr-box { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.25; }
+          .git-pr-text { font: 600 13px var(--body); fill: var(--accent); }
+        </style>
+        <line class="git-line" x1="40" y1="70" x2="880" y2="70"></line>
+        <path class="git-branch" d="M 260 70 C 310 70 330 190 385 190 L 585 190 C 640 190 660 70 710 70"></path>
+        <circle class="git-dot-main" cx="90" cy="70" r="6"></circle>
+        <circle class="git-dot-main" cx="260" cy="70" r="6"></circle>
+        <circle class="git-dot-main" cx="710" cy="70" r="6"></circle>
+        <circle class="git-dot-branch" cx="410" cy="190" r="6"></circle>
+        <circle class="git-dot-branch" cx="485" cy="190" r="6"></circle>
+        <circle class="git-dot-branch" cx="560" cy="190" r="6"></circle>
+        <text class="git-label" x="90" y="45">start</text>
+        <text class="git-label" x="260" y="45">branch created</text>
+        <text class="git-label" x="710" y="45">merged back</text>
+        <text class="git-label-main" x="40" y="105">main branch (the finished house)</text>
+        <text class="git-label-branch" x="355" y="225">your branch (the tarped-off room)</text>
+        <text class="git-label-muted" x="410" y="255" text-anchor="middle">commit 1</text>
+        <text class="git-label-muted" x="485" y="255" text-anchor="middle">commit 2</text>
+        <text class="git-label-muted" x="560" y="255" text-anchor="middle">commit 3</text>
+        <text class="git-label-muted" x="355" y="280">(work + review comments addressed)</text>
+        <rect class="git-pr-box" x="605" y="110" width="128" height="42" rx="8"></rect>
+        <text class="git-pr-text" x="669" y="136" text-anchor="middle">PR + review</text>
+      </svg>
+    </figure>
+
+    <h3 id="step-1">1. Clone the repo<span class="gloss">"get your own copy of the blueprints"</span></h3>
+    <p class="say">"Clone the repo at [github URL] into a new folder."</p>
+    <p>The <strong>repo</strong> (repository) is the master blueprint of the house: every wall, wire, and pipe, plus the full history of changes. Cloning gets you your own working copy on your laptop, separate from everyone else's.</p>
+    <p>You only do this once per project. After that, you're just updating your copy.</p>
+
+    <h3 id="step-2">2. Create an issue<span class="gloss">"put a sticky note on the fridge"</span></h3>
+    <p>On GitHub, an <strong>issue</strong> is a written to-do: the shared list everyone can see, so work doesn't just live in someone's head.</p>
+    <p class="say">"Create a GitHub issue titled 'Login button spacing doesn't match Figma' describing that the padding should be 16px per the design file."</p>
+
+    <h3 id="step-3">3. Create a branch<span class="gloss">"work on a copy of the room, not the original"</span></h3>
+    <p>An isolated copy of the code to work in, separate from main.</p>
+    <p>Like roping off a room and putting down a tarp before you repaint: you work in an isolated space so you don't disturb the finished house (main) while you're mid-change.</p>
+    <p class="say">"Create a new branch for this issue and switch to it."</p>
+
+    <h3 id="step-4">4. Work on it<span class="gloss">"the contractor is in the room with you"</span></h3>
+    <p>This is the actual back-and-forth. You can hand Claude Code the Figma file or link directly.</p>
+    <p class="say">"Here's the Figma link for the updated login screen: update the button spacing and colors to match it exactly."</p>
+    <p class="say">"This component's font doesn't match the design system: fix it to use our Heading/Large token."</p>
+    <p class="say">"Add an empty state for the search results screen, matching the illustration and copy in Figma."</p>
+
+    <h3 id="step-4-1">4.1 Enabling Figma MCP</h3>
+    <p>MCP is what lets Claude Code read your Figma files directly, from specs, components, tokens, instead of manually re-typing values. To turn it on:</p>
+    <p>If it's not already connected, ask Claude directly:</p>
+    <p class="say">"Help me set up the Figma MCP connection."</p>
+    <p>Claude Code will walk through the actual steps for your setup, since this can vary slightly by environment. Once connected, you can just paste a Figma link into a prompt and reference it directly; no separate setup needed per task.</p>
+    <p>If something's off (wrong file, stale token, connection error), just describe what you're seeing and ask Claude to help troubleshoot; no need to know the mechanics of MCP itself.</p>
+
+    <h3 id="step-5">5. Commit locally<span class="gloss">"photograph your progress and label it"</span></h3>
+    <p>A <strong>commit</strong> is a saved checkpoint with a note describing what changed. It exists only on your machine at this point: like a labeled photo in your camera roll, not yet shared with anyone.</p>
+    <p class="say">"Commit this change with a clear message describing what was fixed."</p>
+
+    <h3 id="step-6">6. Push<span class="gloss">"upload your photos to the shared album"</span></h3>
+    <p>Send your commits from your laptop up to GitHub so the team can actually see them. Before this, your work is invisible to everyone else.</p>
+    <p class="say">"Push my commits to the remote repo."</p>
+
+    <h3 id="step-7">7. Open a Pull Request &amp; ask for review<span class="gloss">"call the site manager to inspect your room before it joins the main house"</span></h3>
+    <p>A <strong>Pull Request (PR)</strong> is a formal request to merge your branch into main, with a diff (exact lines changed) for someone to check.</p>
+    <p class="say">"Open a pull request for this branch, summarize what changed, and tag [reviewer] for review."</p>
+
+    <h3 id="step-8">8. Address review comments<span class="gloss">"fix what the inspector flagged"</span></h3>
+    <p>Expect this step to loop. Totally normal, not a failure; new commits get pushed to the same PR each round.</p>
+    <p class="say">"The reviewer said the padding should be 16px not 12px on that button. Fix it, commit, and push the update."</p>
+    <p class="say">"Take a look at [link] PR reviews and address those."</p>
+
+    <h3 id="step-9">9. Merge<span class="gloss">"remove the tarp, the room is now part of the house"</span></h3>
+    <p>Fold the branch into main. <strong>This step is usually the reviewer/developer's call.</strong> Flag it for review rather than merging yourself unless your team has said otherwise.</p>
+    <p class="say">"This PR was approved. Merge it into main/master/dev/[main branch name]."</p>
+
+    <h3 id="step-10">Run the dev stack locally<span class="gloss">"walk through the house yourself before it opens to the public"</span></h3>
+    <p>Start the app on your own desktop so you can actually click around and see it as a real, working app, not just code. It's listed here for reference, but you'll typically do this early and often, most of all during step 4, not only once at the end.</p>
+    <p class="say">"Start the app locally so I can preview it."</p>
+
+    <p>Getting the app running on your machine for the first time is usually the part non-engineers dread most: missing tools, unclear steps, config nobody wrote down. You don't have to fight through that by hand.</p>
+    <ol>
+      <li>
+        <p>Give Claude Code as much context as you have, and ask the team before you assume there's nothing: is there a start guide, onboarding doc, wiki page, or architecture diagram?</p>
+        <p class="say">"Is there a README, onboarding doc, or architecture diagram for this repo? Read it and set things up accordingly."</p>
+      </li>
+      <li>
+        <p>Ask a developer for the environment variables and config the app needs; those are usually secrets and setup choices nobody can guess for you.</p>
+        <p class="say">"I need the .env values / config for local development, who can I get those from?"</p>
+      </li>
+      <li>
+        <p>Don't install, search for, or update libraries by hand. Let Claude Code handle package managers, versions, and dependency errors; that's exactly the kind of mechanical work it's good at.</p>
+        <p class="say">"This needs [library] installed, but I don't know the right version or command. Can you handle it?"</p>
+      </li>
+      <li>
+        <p>When something errors, don't panic and don't try to decode it yourself. Paste the error back to Claude Code and ask it to work through it with you.</p>
+        <p class="say">"I got this error when I ran it: [paste the error]. What's going wrong, and how do we fix it?"</p>
+      </li>
+    </ol>
+
+    <div class="note">
+      <p><strong>Note: commit and push aren't the same moment.</strong> Edit, undo, and experiment locally as much as you want; none of it is visible to anyone else until you push. Commit at a checkpoint worth keeping (a working state, a finished fix); push when you want the team to see it. You can commit several times before pushing once.</p>
+      <p>Rule of thumb: commit whenever you'd hate to lose the current state, push whenever you want visibility; before a review, before stepping away, or whenever you want a second opinion.</p>
+    </div>
+
+    <div class="highlight">
+      <h3 id="quick-exercise">Quick exercise</h3>
+      <ol>
+        <li>Cloned a real (low-stakes) repo.</li>
+        <li>Created one small issue.</li>
+        <li>Branched, asked Claude Code to fix it referencing the Figma MCP, committed, pushed.</li>
+        <li>Ran the dev server locally to see it live.</li>
+        <li>Opened a PR, tagged a reviewer.</li>
+        <li>Made adjustments, new commits, pushed.</li>
+        <li>Addressed comments, made new commits, pushed.</li>
+      </ol>
+    </div>
+
+    <div class="highlight">
+      <h3 id="starter-prompts">Starter prompt kit</h3>
+      <p>Prompts to copy and fill in for a first real task:</p>
+      <ol>
+        <li>"Clone [repo URL] and set it up so I can run it locally."</li>
+        <li>"Create an issue titled '[short title]' with [description of what's wrong and what it should look like, referencing Figma if relevant]."</li>
+        <li>"Create a branch for this issue and switch to it."</li>
+        <li>"Here's the Figma link: [link]. Update [component/screen] to match it."</li>
+        <li>"Commit this with a message describing the change, then push it."</li>
+        <li>"Open a PR for this branch, summarize the change, and tag [reviewer]."</li>
+        <li>"Start the dev server so I can preview this in the browser."</li>
+      </ol>
+    </div>
+
+    <h3 id="troubleshooting">Troubleshooting</h3>
+    <ul>
+      <li><strong>"There's a merge conflict"</strong>: two branches changed the same lines differently. Flag this to a developer; it usually needs a human decision on which version is correct.</li>
+      <li><strong>"The dev server won't start"</strong>: ask Claude Code directly: "The dev server isn't starting, can you check what's wrong?" It can usually diagnose missing setup steps.</li>
+      <li><strong>"I pushed but don't see my branch on GitHub"</strong>: confirm the push actually succeeded: "Did that push work? Show me the output."</li>
+      <li><strong>"Claude Code says permission denied"</strong>: usually a repo access issue, not something to fix locally. Check with whoever manages repo access.</li>
+    </ul>
+
+    <h2 id="web-app-knowledge">Part 2: Fundamental Web App Knowledge</h2>
+
+    <div class="note">
+      <p><strong>A note on scope:</strong> this section describes one specific shape of software, a typical web app with a frontend, backend, and database, talking to each other over a network. It's the most common pattern, but it's not the only one. If the project you're working on doesn't feel like this description, that's a sign it needs different intuition, not that you're missing something. A few kinds of software that don't fit this pattern at all:</p>
+      <ul>
+        <li><strong>Desktop app</strong> (e.g. Photoshop, Excel): runs entirely on your own machine. There's often no server or database round trip for the things you do most.</li>
+        <li><strong>Command-line tool (CLI)</strong>: no visual frontend at all. You type an instruction, it prints text back; there's no "screen" to update.</li>
+        <li><strong>Mobile app</strong>: often has a frontend like this one, but may work offline and sync later instead of talking to a server on every tap.</li>
+        <li><strong>Data pipeline / ML model</strong>: nobody clicks anything. It's a job that runs on a schedule or on new data, with no person-facing loop at all.</li>
+        <li><strong>Embedded / firmware</strong>: software running inside a physical device (an appliance, a sensor, a car), often with no network involved at all.</li>
+      </ul>
+    </div>
+
+    <h3 id="big-picture">The big picture: how a click becomes a screen update</h3>
+    <ol>
+      <li>You click a button (<strong>frontend</strong>)</li>
+      <li>The frontend sends a request over the <strong>network</strong></li>
+      <li>A <strong>server</strong> running the <strong>backend</strong> receives it, figures out what to do, maybe checks the <strong>database</strong></li>
+      <li>It sends an <strong>API</strong> response back over the network</li>
+      <li>The <strong>frontend</strong> updates what you see</li>
+    </ol>
+    <p>This loop happens constantly, but it's <em>always</em> this same five-step relay, whether it's loading a profile picture or submitting a form.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 900 260" role="img" aria-labelledby="stack-diagram-title">
+        <title id="stack-diagram-title">Three boxes, frontend, backend, and database, connected by request and response arrows.</title>
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--muted)"></path>
+          </marker>
+        </defs>
+        <style>
+          .stack-box { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+          .stack-title { font: 600 17px var(--display); fill: var(--text); }
+          .stack-sub { font: italic 13px var(--display); fill: var(--muted); }
+          .stack-sub2 { font: 12px var(--body); fill: var(--muted); }
+          .stack-arrow { stroke: var(--muted); stroke-width: 1.5; marker-end: url(#arrow); }
+          .stack-arrow-label { font: 12px var(--body); fill: var(--muted); }
+        </style>
+        <rect class="stack-box" x="30" y="40" width="220" height="110" rx="10"></rect>
+        <text class="stack-title" x="140" y="90" text-anchor="middle">Frontend</text>
+        <text class="stack-sub" x="140" y="114" text-anchor="middle">dining room</text>
+        <text class="stack-sub2" x="140" y="132" text-anchor="middle">(what you see)</text>
+
+        <rect class="stack-box" x="340" y="40" width="220" height="110" rx="10"></rect>
+        <text class="stack-title" x="450" y="90" text-anchor="middle">Backend</text>
+        <text class="stack-sub" x="450" y="114" text-anchor="middle">kitchen</text>
+        <text class="stack-sub2" x="450" y="132" text-anchor="middle">(logic + rules)</text>
+
+        <rect class="stack-box" x="650" y="40" width="220" height="110" rx="10"></rect>
+        <text class="stack-title" x="760" y="90" text-anchor="middle">Database</text>
+        <text class="stack-sub" x="760" y="114" text-anchor="middle">pantry</text>
+        <text class="stack-sub2" x="760" y="132" text-anchor="middle">(stored data)</text>
+
+        <line class="stack-arrow" x1="255" y1="75" x2="335" y2="75"></line>
+        <text class="stack-arrow-label" x="295" y="65" text-anchor="middle">request</text>
+        <line class="stack-arrow" x1="335" y1="115" x2="255" y2="115"></line>
+        <text class="stack-arrow-label" x="295" y="135" text-anchor="middle">response</text>
+
+        <line class="stack-arrow" x1="565" y1="75" x2="645" y2="75"></line>
+        <text class="stack-arrow-label" x="605" y="65" text-anchor="middle">query</text>
+        <line class="stack-arrow" x1="645" y1="115" x2="565" y2="115"></line>
+        <text class="stack-arrow-label" x="605" y="135" text-anchor="middle">data</text>
+      </svg>
+      <figcaption>Every click that "loads" something runs this full loop; that's what the loading spinner is waiting on.</figcaption>
+    </figure>
+
+    <h3 id="frontend">Frontend<span class="gloss">"the dining room and furniture the guests see"</span></h3>
+    <p>Everything visual and interactive: layout, buttons, animations, scroll and click behavior.</p>
+    <ul>
+      <li><strong>Component</strong>: a reusable piece of UI, like a button or a card; build it once, use it everywhere. This maps almost exactly to a Figma component.</li>
+      <li><strong>Responsive</strong>: the layout adapting to different screen sizes (phone vs. desktop).</li>
+      <li><strong>State</strong>: what the app currently "remembers": is the modal open? is the form filled in? Change the state, the screen re-renders to match it.</li>
+    </ul>
+
+    <h3 id="backend">Backend<span class="gloss">"the kitchen and utility room nobody sees"</span></h3>
+    <p>The logic behind the scenes: checking a password, calculating a price, deciding what content a specific user is allowed to see. Guests never enter the kitchen, but everything they're served comes from there.</p>
+
+    <h3 id="server">Server<span class="gloss">"the building itself, always staffed"</span></h3>
+    <p>A computer, usually far away in a data center, that's always on and waiting to respond; like a restaurant that's staffed and ready even when you're not there. When you run the dev server locally, your own machine is temporarily acting as that server with the same role, just reachable only by you instead of the public internet.</p>
+    <p>A few related terms you'll hear that describe how servers are set up, not different things from a server:</p>
+    <ul>
+      <li><strong>VM (virtual machine)</strong>: a computer simulated inside another computer, so one physical machine can run several isolated "servers" at once.</li>
+      <li><strong>Container / Docker</strong>: a lighter-weight version of the same idea: packages an app with everything it needs to run, so it behaves the same on any machine (a developer's laptop, a teammate's laptop, or the real production server). Solves "it works on my machine but not yours."</li>
+      <li><strong>Kubernetes (k8s)</strong>: a system for managing many containers running across many machines at once; starting them, restarting them if they crash, distributing traffic between them. Relevant mainly at the scale of "many servers," not a single dev environment.</li>
+    </ul>
+
+    <h3 id="network-api">Network / API<span class="gloss">"the waiter carrying orders between dining room and kitchen"</span></h3>
+    <p>The <strong>API</strong> (Application Programming Interface) is the fixed menu of things the frontend is allowed to ask the backend for: e.g. "get this user's profile," "save this comment."</p>
+    <p>The <strong>network</strong> is the trip the waiter makes to carry that request and bring back the answer. This round trip is why apps sometimes show a loading spinner; the waiter is walking to the kitchen and back.</p>
+
+    <h3 id="database">Database<span class="gloss">"the pantry and filing cabinet"</span></h3>
+    <p>Where information is stored long-term: accounts, messages, saved settings, orders. Only the backend goes into the pantry directly; the frontend just asks the waiter to fetch things from it.</p>
+
+    <h3 id="auth">Authentication vs. Authorization<span class="gloss">"checking ID at the door, then checking the guest list for which rooms you can enter"</span></h3>
+    <ul>
+      <li><strong>Authentication</strong>: proving you are who you say you are (logging in).</li>
+      <li><strong>Authorization</strong>: once you're recognized, deciding what you're allowed to see or do (admin vs. regular user).</li>
+    </ul>
+
+    <h3 id="environments">Environments: local / staging (dev) / production<span class="gloss">"private walkthrough / dress rehearsal / opening night"</span></h3>
+    <ul>
+      <li><strong>Local</strong>: only on your laptop, only you can see it.</li>
+      <li><strong>Staging</strong>: a shared preview version the team can test before it's public.</li>
+      <li><strong>Production</strong>: the real, live app that real users see.</li>
+    </ul>
+
+    <h3 id="real-world-example">Real-world example</h3>
+    <p>You post something on social media, close the app, open it the next day. The post is still there. You log in on a different phone, it's still there too. That single experience contains almost every core concept in web development. Breaking it apart:</p>
+    <ul>
+      <li>What you typed and tapped, on screen: the <strong>frontend</strong>. The visual, interactive part.</li>
+      <li>Something checked you were logged in as you: <strong>authentication</strong>.</li>
+      <li>Proving identity, separate from what you're allowed to do once identified (<strong>authorization</strong>, e.g. admin vs. regular user).</li>
+      <li>Something remembered your post permanently, not just for that one session: the <strong>database</strong>. Long-term storage includes accounts, posts, settings. Nothing in the frontend itself is permanent; it only shows what it's told.</li>
+      <li>Getting from "I tapped post" to "it's saved somewhere else, and shows up on a different phone": the <strong>network</strong> carries the <strong>request</strong>, the <strong>API</strong> is the fixed set of things the frontend is allowed to ask for, and the <strong>backend</strong> is the logic deciding what to do with that request: check the password, save the post, decide what content this user can see.</li>
+    </ul>
+    <p>Put together, those pieces form the request/response loop that runs on every interaction, not just posting.</p>
+    <p>On top of that, this loop has to run <em>somewhere</em>: a <strong>server</strong>, possibly inside a <strong>VM</strong> or <strong>container</strong>, sometimes managed at scale by something like <strong>Kubernetes</strong>, and it runs in one of several <strong>environments</strong> on its way to being something real users can see: <strong>local</strong>, <strong>staging</strong>, then <strong>production</strong>.</p>
+    <p>Everything in the table below is vocabulary for parts of that same picture.</p>
+
+    <h3 id="terminology">Terminology</h3>
+    <table>
+      <thead>
+        <tr><th>Term</th><th>Simple meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Frontend</td><td>The visual, interactive part of the app; what you actually see and click</td></tr>
+        <tr><td>Backend</td><td>The logic behind the scenes: checking, calculating, deciding what you're allowed to see</td></tr>
+        <tr><td>Database</td><td>Where information is stored long-term: accounts, posts, settings, orders</td></tr>
+        <tr><td>Server</td><td>The always-on computer that receives requests and runs the backend</td></tr>
+        <tr><td>Network</td><td>The trip a request takes from frontend to backend and back; why loading spinners exist</td></tr>
+        <tr><td>API</td><td>The fixed set of things the frontend is allowed to ask the backend for</td></tr>
+        <tr><td>Repo / Repository</td><td>The whole project's folder plus full history of changes</td></tr>
+        <tr><td>Main / main branch</td><td>The official, current version of the house</td></tr>
+        <tr><td>Diff</td><td>A side-by-side of exactly what lines changed</td></tr>
+        <tr><td>Merge conflict</td><td>Two people changed the same wall differently; needs a human to decide which version wins</td></tr>
+        <tr><td>Bug</td><td>Something behaves differently than it's supposed to</td></tr>
+        <tr><td>Deploy / ship</td><td>Push the finished work live for real users</td></tr>
+        <tr><td>Localhost</td><td>The address (like localhost:3000) your browser uses to reach the app running on your own machine</td></tr>
+        <tr><td>Port</td><td>A numbered "door" on a machine that a specific service listens on: why localhost addresses end in a number</td></tr>
+        <tr><td>Environment variables / .env</td><td>Settings and secrets (API keys, passwords) kept outside the codebase so they aren't exposed publicly</td></tr>
+        <tr><td>API key / token</td><td>A credential that proves a request is allowed to access a service; like a keycard rather than a full login</td></tr>
+        <tr><td>JSON</td><td>A common plain-text format for structuring data, used constantly to pass information between frontend and backend</td></tr>
+        <tr><td>Dependency manager (npm, pip)</td><td>Installs and tracks the external code libraries a project needs, so everyone's setup matches</td></tr>
+        <tr><td>Radiant</td><td>NCSA-specific cloud platform, same category as AWS/GCP/Azure but not a public commercial provider</td></tr>
+        <tr><td>React / AngularJS / Vue / Vanilla JavaScript</td><td>The engine the UI is built in; like choosing Figma itself vs. building everything in raw code with no tool at all</td></tr>
+      </tbody>
+    </table>
+  </article>
+</div>
+
+<footer>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</body>
+</html>

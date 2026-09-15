@@ -448,6 +448,138 @@ body.home .wrap { max-width: 1160px; }
   scroll-margin-top: 2rem;
 }
 .prose h2:first-child { margin-top: 0; }
+.prose h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  margin: 2.4rem 0 .8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 2rem;
+}
+.prose h3:first-of-type,
+.prose h2 + h3,
+.diagram + h3 {
+  border-top: none;
+  padding-top: 0;
+}
+.prose h3 .gloss {
+  display: block;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: .78em;
+  color: var(--muted);
+  margin-top: .25rem;
+}
+.prose h4 {
+  font-size: .95rem;
+  font-weight: 600;
+  margin: 1.6rem 0 .5rem;
+  scroll-margin-top: 2rem;
+}
+.prose ul, .prose ol { padding-left: 1.2rem; margin: 0 0 1.3rem; }
+.prose li { margin-bottom: .45rem; }
+.prose li > p { margin: 0 0 .4rem; }
+.prose strong { font-weight: 600; }
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .88em;
+  background: var(--accent-soft);
+  padding: .1em .4em;
+  border-radius: 3px;
+}
+
+/* "say this to Claude Code" example prompts: present, but not a callout box */
+.prose .say {
+  margin: .7rem 0;
+  padding-left: .9rem;
+  border-left: 2px solid var(--accent);
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--text);
+  font-size: .97rem;
+  line-height: 1.55;
+}
+.prose .say code { background: none; padding: 0; }
+
+/* Quiet aside, same visual weight as .say, for editorial remarks that aren't quotes */
+.prose .quiet {
+  margin: .7rem 0;
+  padding-left: .9rem;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+/* Sections that deserve to stand out, e.g. Quick exercise, Starter prompt kit */
+.prose .highlight {
+  margin: 1.8rem 0;
+  padding: 1.4rem 1.6rem 1.6rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+}
+.prose .highlight h3 {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.prose .highlight > :last-child { margin-bottom: 0; }
+
+.prose .note {
+  font-size: .92rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 1.1rem;
+  margin: 1.8rem 0 1.3rem;
+}
+.prose .note p { margin: 0 0 .8rem; }
+.prose .note p:last-child { margin-bottom: 0; }
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.5rem;
+  font-size: .88rem;
+}
+.prose th, .prose td {
+  text-align: left;
+  vertical-align: top;
+  padding: .55rem .9rem .55rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.prose th {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.diagram { margin: 1.5rem 0 2rem; }
+.diagram svg { display: block; width: 100%; height: auto; }
+.diagram figcaption {
+  margin-top: .6rem;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: .9rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.toc > li { margin-bottom: 1rem; }
+.toc > li > a { font-weight: 500; color: var(--text); font-size: .8rem; }
+.toc-sub {
+  list-style: none;
+  margin: .5rem 0 0;
+  padding-left: .9rem;
+  border-left: 1px solid var(--line);
+}
+.toc-sub li { margin-bottom: .5rem; }
+.toc-sub a { font-size: .72rem; }
 
 @media (max-width: 800px) {
   .article-head { padding: 3rem 0 2rem; }
