@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drinking the Kool-Aid · Chen Wang</title>
+<meta name="description" content="One RSE's take on AI-facilitated work: what got faster, what got harder, and what it means for research software engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/writing/" aria-current="page">Writing</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/writing/">Writing</a><span class="sep">·</span>September 2026</p>
+  <h1 class="page-title">Drinking the Kool-Aid: One RSE's Take on AI-Facilitated Work</h1>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#got-here-slowly">I got here slowly</a></li>
+    <li><a href="#what-got-better">What actually got better</a></li>
+    <li><a href="#different-way">A different way to use computers</a></li>
+    <li><a href="#hate-all-of-it">Then there are days when I hate all of it</a></li>
+    <li><a href="#worries-me-more">The thing that worries me more than AI bugs</a></li>
+    <li><a href="#cheap-code">Cheap code has its own costs</a></li>
+    <li><a href="#rse-problem">The RSE problem is a little different</a></li>
+    <li><a href="#economics">And the economics are impossible to ignore</a></li>
+    <li><a href="#what-is-rse-for">So what is an RSE for?</a></li>
+    <li><a href="#where-to-stop">I'm still figuring out where to stop</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>I started drafting this a few months ago and then kept changing it, partly because the tools kept changing and partly because my feelings about them did too. Over the past year I've been skeptical, excited, overwhelmed, completely drained, rejuvenated, and occasionally all of those in the same week.</p>
+
+    <p>I still don't think anyone has earned the right to be particularly confident about where AI and software development are going. But I've been working this way long enough that I have some observations.</p>
+
+    <p>At the moment, at least, I'm enjoying it.</p>
+
+    <h2 id="got-here-slowly">I got here slowly</h2>
+    <p>My progression was probably pretty typical: StackOverflow and documentation, then ChatGPT in another window, Copilot in the editor, and eventually Codex, Cursor, and Claude Code working across the whole codebase.</p>
+
+    <p>Since I started drafting this article, the boundary has already moved again. I'm connecting AI to design files, experimenting with my own MCP tools and self-hosted LLMs, and gradually letting it into more of my everyday workflow. The funny realization is that coding itself is becoming a smaller part of how I use AI.</p>
+
+    <p>I now use it for some of the connective tissue around a project: turning meeting notes into action items and GitHub issues, organizing backlogs, cleaning up documentation, and keeping track of decisions. I'm still figuring out what I trust it with, but it increasingly feels less like a coding tool and more like a layer across the tools I already use.</p>
+
+    <p>It has also made building things fun again. I've started doing side projects simply because the cost of trying an idea has dropped so much. Things that used to end with "that sounds fun, but I don't want to spend three weekends building it" now often start with "let's see if this works."</p>
+
+    <h2 id="what-got-better">What actually got better</h2>
+    <p>Speed is the obvious answer. For implementation work, I'd estimate I'm roughly three times faster than I used to be. That number is completely anecdotal, but the difference is large enough that I don't need a stopwatch to notice it.</p>
+
+    <p>More interesting to me is how much my range has expanded. There are plenty of things I used to avoid because I didn't have the skill, didn't have time to learn it, or would have needed help from someone else. Now I can at least try. I've prototyped in frameworks I barely knew, worked directly from design files, ventured further into infrastructure, and made little games and other side projects that otherwise would have remained ideas.</p>
+
+    <p>Expertise obviously still matters. In fact, AI has given me many opportunities to discover exactly how much it matters. But not having expertise is less of a barrier to exploration. I don't necessarily have to spend a week learning something before I can find out whether my idea is worth pursuing.</p>
+
+    <p>That feels democratizing in a way that "three times faster" doesn't really capture. The distance between <em>I don't know how to do this</em> and <em>let's see what happens</em> has become much shorter.</p>
+
+    <h2 id="different-way">I think we're also learning a different way to use computers</h2>
+    <p>The more I use these tools, the more I wonder whether the interesting change is bigger than coding. It may also be a change in how we interact with computers.</p>
+
+    <p>For decades we've been trained to use designated applications through designed interactions. Someone decides that a feature belongs under Settings, gives us a menu, a button, or a form, and teaches us the path through the interface. After enough repetition those conventions feel natural, but they aren't universal truths about how computers have to work. They're learned habits.</p>
+
+    <p>AI asks us to develop almost the opposite habit. Instead of first learning what operations an interface exposes, we start with what we want and describe it in free-form language. I've caught myself looking through Claude documentation for a configuration option, for example, before realizing that I can ask Claude about Claude: where a setting lives, what it does, what alternatives exist, and whether it can change the configuration for me.</p>
+
+    <p>It's a small example, but the mental model is very different. To be honest, I still catch myself looking for the button. But I can feel that we're moving, at least in some places, from <em>learn the interface, then operate the system</em> toward <em>describe the goal, then explore the system</em>.</p>
+
+    <p>I don't know whether chat itself will turn out to be the interface of the future. It may just be an awkward transitional form. But it has made me realize how much of what I thought was "intuitive" computer interaction was simply behavior I had been trained into over decades.</p>
+
+    <h2 id="hate-all-of-it">Then there are days when I hate all of it</h2>
+    <p>AI fatigue is real, and it's one of the stranger contradictions of working this way. I can accomplish much more and still finish the day feeling more exhausted than before.</p>
+
+    <p>The mechanical work has decreased, but deciding, judging, reviewing, redirecting, and context-switching have multiplied. AI makes it possible for me to have several things moving at once, so naturally I start several things at once. Eventually all of them come back needing a human decision, at which point I discover that I have successfully optimized the entire workflow until I am the bottleneck.</p>
+
+    <p>That has been my recurring cycle: I get excited, expand what I'm doing, become completely drained, pull back, and eventually discover something genuinely useful that makes me excited again. I don't think I've reached equilibrium yet.</p>
+
+    <p>There's also a more personal kind of anxiety. If writing code has been part of your professional identity for years, it's disorienting to watch a machine produce in minutes something that would once have represented an afternoon of skilled work. Sometimes it feels liberating; sometimes it makes you wonder what exactly you're supposed to be getting good at now.</p>
+
+    <h2 id="worries-me-more">The thing that worries me more than AI bugs</h2>
+    <p>AI writes bugs. So do I. That part doesn't seem particularly revolutionary.</p>
+
+    <p>What worries me more is gradually losing the ability to understand what we're building.</p>
+
+    <p>Software development has always moved through layers of abstraction. Most of us don't think in assembly anymore. Higher-level languages hid some of that complexity, then libraries and frameworks hid more, and cloud platforms hid entire machines. Every layer gave us enormous leverage while also costing us some visibility and control.</p>
+
+    <p>AI feels like another abstraction layer, except potentially a very large one.</p>
+
+    <p>There's an important difference between AI generating code that I then understand and a workflow where AI writes the code, another AI reviews it, discovers an AI-generated bug, asks an AI to fix it, generates the tests, and eventually presents the human with a green checkmark. Every individual step can look reasonable while nobody maintains a good mental model of the whole system.</p>
+
+    <p>I don't think the answer is to reject abstraction. I have no desire to write assembly to prove that I'm a real programmer, and I'm perfectly happy to let AI review AI-generated code. But somewhere in the process there still needs to be a human who understands what the system does, why it was built that way, and where it might fail.</p>
+
+    <p>I don't know exactly where that boundary should sit. I just don't want us to give it up accidentally.</p>
+
+    <h2 id="cheap-code">Cheap code has its own costs</h2>
+    <p>This also shows up at a much more mundane level: we generate too much stuff.</p>
+
+    <p>A pull request that used to contain five files can suddenly contain fifty. Adding another feature feels cheap, so we add it, and the disposable little feature becomes part of the permanent system. The codebase can grow faster than anyone's understanding of it, and I have to admit I've been partly responsible.</p>
+
+    <p>I noticed an interesting reversal in code review recently. Before AI, if a reviewer spotted a small unrelated problem, the developer might say, "Good catch, I'll address that in the next PR." The usual struggle was getting people to actually go back and fix those things lol. Now I sometimes find myself guarding against the opposite. AI notices something adjacent to the task and, because fixing it costs almost nothing, suddenly the PR also contains a refactor, some cleanup, a dependency change, and three "while we're here" improvements nobody asked for. Each one may be perfectly reasonable on its own, but together they make the original change much harder to understand and review.</p>
+
+    <p>That has made me much more convinced that AI-assisted development needs constraints precisely because generation is so easy. Smaller PRs matter more, not less, and scope matters more because the implementation cost that used to discourage feature creep is disappearing.</p>
+
+    <p>This isn't really an AI problem so much as a human response to abundance. When producing and changing code becomes cheap, deciding what code deserves to exist, and what code deserves to be left alone, becomes more important.</p>
+
+    <h2 id="rse-problem">The RSE problem is a little different</h2>
+    <p>All of this gets particularly strange in research software engineering because our job was never simply to turn a specification into code. Half the time there isn't a specification. The research question is evolving, the requirements are fuzzy, the domain is specialized, the funding has an end date, and sometimes we're building the prototype partly to discover what the prototype is supposed to be.</p>
+
+    <p>AI is extremely good at accelerating one part of that messy process: getting something on the screen.</p>
+
+    <p>That means researchers can increasingly make their own first versions. A graduate student can sit down with Claude and produce in a weekend something that might previously have required an RSE to get started. In many cases I think that's genuinely good. If somebody can test an idea before involving a software team, everyone saves time.</p>
+
+    <p>But version one was only one part of the work.</p>
+
+    <p>The awkward question comes when that weekend prototype works.</p>
+
+    <p>Now somebody wants to deploy it. Other researchers want accounts. There is sensitive data. The PI wants it demonstrated next month. A paper depends on it. Nobody knows exactly which pieces were generated, there are few tests, some dependency was chosen because the model suggested it, and the person who made it is graduating in six months.</p>
+
+    <p>That's where an RSE may enter now: not to build the prototype, but to figure out what happened and turn it into software that other people can actually depend on.</p>
+
+    <p>In some ways that job is harder. Starting with a blank repository is clean. Inheriting a large AI-generated prototype means reconstructing decisions that may never have been consciously made in the first place.</p>
+
+    <h2 id="economics">And the economics are impossible to ignore</h2>
+    <p>There's another part of this that feels uncomfortable to write about, but it would be strange not to: research software exists inside research funding.</p>
+
+    <p>At least in the U.S., this shift is arriving at an awkward time. Research funding is already under pressure: by August 2026, Nature reported that NSF was on track to award roughly 30% fewer new grants than in the previous fiscal year.</p>
+
+    <p>For RSE groups, the uncomfortable part isn't only whether AI can code. It's what happens when that capability meets a budget spreadsheet.</p>
+
+    <p>If a project previously budgeted for several developers and somebody can now demonstrate that two people with AI can produce a prototype, it's completely reasonable for a PI or funding agency to ask whether the next project still needs the same software staffing. I've already worked on projects where the amount a very small team could produce would have sounded implausible to me a few years ago.</p>
+
+    <p>The problem is that implementation throughput and long-term engineering capacity are not the same thing. AI can make the visible part of software development dramatically cheaper while leaving testing, architecture, security, deployment, user support, maintenance, domain understanding, and technical ownership behind. In some cases it creates more of that work simply because much more software can now be created.</p>
+
+    <p>The problem is that faster implementation and long-term engineering capacity aren't the same thing. AI makes software cheaper to create, but testing, architecture, security, deployment, support, and maintenance don't automatically get cheaper. But there's a harder question for research software, which should be a totally different discussion: does every project actually need all of that? Some software is grant-specific, highly experimental, or built for a handful of domain experts. Maybe it doesn't need to become production software. Maybe it serves its purpose, the research moves on, and the software dies with the project, and maybe that's perfectly fine. AI makes it easier to build more software, but it may also force us to be more deliberate about which software is worth sustaining at all.</p>
+
+    <p>All of that creates a strange incentive for RSEs. We want to demonstrate that we're productive with AI, but every success can also become evidence that the next project should budget fewer engineering hours. At the same time, if everyone can generate prototypes cheaply, the number of prototypes that eventually need to be hardened and sustained may increase.</p>
+
+    <p>I don't know yet how those two forces balance out.</p>
+
+    <h2 id="what-is-rse-for">So what is an RSE for?</h2>
+    <p>I've found myself thinking about this question more than I expected.</p>
+
+    <p>If I strip away the typing, a lot of what I've gotten good at over the years is translation. I know enough about software and enough about research to recognize that a scientist asking for "a database" may actually be describing a workflow problem, that two collaborators are using the same word to mean different things, or that something which looks great in a demo is going to become painful once twenty people depend on it.</p>
+
+    <p>The same distinction appears when I use AI for work outside coding. Turning meeting notes into GitHub issues is easy; deciding which part of the meeting was actually a decision is harder. Generating three architectures is easy; knowing which one fits the people, infrastructure, timeline, funding, and likely lifespan of a research project is harder. Producing another feature is easy; deciding that the project shouldn't have that feature is harder.</p>
+
+    <p>AI gives me much more leverage after those judgments are made. It hasn't relieved me of making them.</p>
+
+    <p>That makes me think the RSE role may shift somewhat toward technical leadership, architecture, integration, stewardship, and helping researchers navigate increasingly AI-generated software. Some RSEs will probably spend less time implementing every feature themselves and more time making sure that all the things people can now build cheaply can actually coexist, survive, and be understood.</p>
+
+    <p>I don't think we know the shape of that job yet, though, and I'd rather not invent a grand new definition before we've lived through it.</p>
+
+    <h2 id="where-to-stop">I'm still figuring out where to stop</h2>
+    <p>A few months ago, when I first started drafting this, I thought I had a fairly simple rule: don't chase every new tool; adopt something when you have a real need for it.</p>
+
+    <p>I still think that's sensible. I've also noticed that my definition of "a real need" keeps expanding: I'm letting AI touch project management, documentation, design, and parts of my workflow that I originally kept safely separated from coding. Six months from now I'll probably be doing something that currently seems excessive.</p>
+
+    <p>So I don't think I have a settled AI workflow, and I'm increasingly suspicious of anyone who claims they do. What I have is a moving boundary between what I'm willing to delegate and what I still want to understand myself.</p>
+
+    <p>A year ago, the question I kept asking was how much code AI could write. I'm less interested in that now. Clearly, it can write a lot. The question I keep coming back to is how much abstraction we can gain without abstracting ourselves out of understanding our own work.</p>
+
+    <p>I'm still drinking the Kool-Aid. I'm just paying more attention to the ingredients.</p>
+  </article>
+</div>
+
+<footer>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</body>
+</html>
