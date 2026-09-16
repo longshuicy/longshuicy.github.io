@@ -654,6 +654,21 @@ body.home .wrap { max-width: 1160px; }
   margin: .9rem 0 0 !important;
 }
 
+/* ---- Projects: what my role actually involved ---- */
+.item .mywork {
+  margin: .7rem 0 0;
+  font-size: .92rem;
+  line-height: 1.65;
+}
+.item .mywork .label {
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--accent);
+  white-space: nowrap;
+  margin-right: .5em;
+}
+
 /* ---- Life: monthly record ---- */
 .month { max-width: 40em; margin-bottom: 2.25rem; }
 .month:last-child { margin-bottom: 0; }

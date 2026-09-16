@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conference Hacks · Chen Wang</title>
+<meta name="description" content="Practical rules for research software engineers at conferences: picking one, reading the call for submissions, cutting slides, working a poster, and the logistics nobody tells you about.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/essays/" aria-current="page">Essays</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/essays/">Essays</a><span class="sep">·</span>October 2024</p>
+  <h1 class="page-title">Conference Hacks: From Submission to Success</h1>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#pick">First, pick the right conference</a></li>
+    <li><a href="#call">Actually read the call for submissions</a></li>
+    <li><a href="#worth-submitting">You probably have something worth submitting</a></li>
+    <li><a href="#slides">My slide rule</a></li>
+    <li><a href="#posters">Posters need a pitch</a></li>
+    <li><a href="#logistics">Start the logistics stuff early</a></li>
+    <li><a href="#dont-optimize">Don't optimize the conference too much</a></li>
+    <li><a href="#checklist">My very short checklist</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>Conferences are part of RSE life, but nobody really tells you how to do them. Which conference should you go to? What counts as something worth submitting? How many slides do you need? What are you supposed to do when someone stands in front of your poster and stares at it silently?</p>
+
+    <p>After attending and presenting at quite a few conferences, I've accumulated some opinions and practical rules. Nothing here is profound. It's mostly stuff I wish someone had told me earlier.</p>
+
+    <h2 id="pick">First, pick the right conference</h2>
+    <p>Start with what you actually want out of it. Do you want to present your work, learn a technology, meet other RSEs, find collaborators, or get closer to the research community your software serves?</p>
+
+    <p>For RSEs, I think conferences roughly fall into a few buckets. There are domain conferences, like AGU for Earth and space science; research computing conferences, especially PEARC; RSE conferences, like US-RSE; and technology conferences, like KubeCon or AWS re:Invent. My original talk also included examples from specific research communities such as geoinformatics and sustainability.</p>
+
+    <p>A few good starting points:</p>
+    <ul>
+      <li><a href="https://us-rse.org/events/conference/" target="_blank" rel="noopener">US-RSE Conference</a>: probably the most directly relevant if you want to meet other RSEs and talk about the profession itself.</li>
+      <li><a href="https://pearc.acm.org/" target="_blank" rel="noopener">PEARC</a>: research computing, cyberinfrastructure, research software, HPC, data, workforce, and related topics.</li>
+      <li><a href="https://supercomputing.org/" target="_blank" rel="noopener">SC (Supercomputing Conference)</a>: HPC, supercomputing, research computing, scientific software, large-scale systems, and emerging computing technologies.</li>
+      <li><a href="https://sciencegateways.org/networking-community/annual-conference" target="_blank" rel="noopener">Gateways</a>: science gateways and research software that connects researchers with computational and data resources.</li>
+      <li><a href="https://www.agu.org/annual-meeting" target="_blank" rel="noopener">AGU Annual Meeting</a>: a huge domain conference if your work touches Earth, environmental, climate, atmospheric, or geoscience research.</li>
+      <li><a href="https://www.escience-conference.org/" target="_blank" rel="noopener">IEEE eScience</a>: computational and data-intensive research, scientific workflows, research infrastructure, and eScience.</li>
+      <li><a href="https://www.cncf.io/kubecon-cloudnativecon-events/" target="_blank" rel="noopener">KubeCon + CloudNativeCon</a>: useful when the technical side of your RSE work is the point: Kubernetes, cloud-native infrastructure, DevOps, observability, and so on.</li>
+      <li><a href="https://aws.amazon.com/events/reinvent/" target="_blank" rel="noopener">AWS re:Invent</a>: enormous and very industry-oriented, but useful for cloud architecture and hands-on technical learning.</li>
+    </ul>
+
+    <p>Ask your coworkers where they go too. People doing similar work are often the best conference recommendation engine. I also like looking through the previous year's program. If you keep seeing talks you wish you had attended, or can easily imagine your own work fitting there, that's usually a good sign.</p>
+
+    <h2 id="call">Actually read the call for submissions</h2>
+    <p>I mean actually read it. Not just the conference name and the big SUBMIT button.</p>
+
+    <p>Before writing anything, check the deadline, the tracks, what formats they accept, and what each format requires. A conference might accept full papers, short papers, presentation-only abstracts, posters, tutorials, workshops, panels, or BoFs (Birds of a Feather, basically an informal session organized around a shared topic). The requirements can be surprisingly different even within the same conference.</p>
+
+    <p>These things sound painfully obvious until you get one wrong. I once wrote an abstract for eScience and then realized, after the weekend, that I had forgotten to check the actual date and had missed the submission deadline entirely. The abstract was ready. The conference was not waiting for me.</p>
+
+    <p>So now I work backward from the deadline and leave some time for coauthors, PIs, or project leads to review things. Also, assume the deadline is real. Sometimes conferences extend them, but gambling on that is not a submission strategy lol.</p>
+
+    <h2 id="worth-submitting">You probably have something worth submitting</h2>
+    <p>I think RSEs sometimes underestimate this because we compare ourselves with researchers presenting a shiny new scientific result.</p>
+
+    <p>A useful RSE submission can be a framework you built, an interesting use case, a technical problem you solved, lessons from deploying something, a comparison of tools, or a development practice that worked particularly well.</p>
+
+    <p>The better question is simply: <em>would someone in this audience find this useful?</em></p>
+
+    <p>If the work belongs to a research project, talk to the PI or project lead before you submit it. Figure out whether the project actually wants the work presented, who should be an author, and what order the authors should appear in. These are much nicer conversations three weeks before the deadline than three hours before it.</p>
+
+    <p>Then try to tell a story. "We built X using Y" is usually less interesting than "we had this problem, tried this approach, discovered these things, and here's what might be useful to you."</p>
+
+    <h2 id="slides">My slide rule: X minutes, X−2 slides</h2>
+    <p>My completely unscientific rule is X minutes, X−2 slides. Twenty-minute talk? I start around 18. Ten minutes? Around eight. Obviously some slides take ten seconds and some take three minutes, so don't take the formula too seriously. The point is to leave yourself room.</p>
+
+    <p>If you're running over time, don't solve the problem by talking faster. Skip something. Nobody has ever sat through a conference talk thinking, I really wish this person had squeezed in another architecture diagram.</p>
+
+    <p>Practice once with a timer. You don't need to memorize the presentation, but you should know whether your 20-minute talk is secretly a 37-minute talk.</p>
+
+    <p>And on the day, get there early enough to make sure your laptop, slides, adapter, videos, fonts, animation, and whatever other clever thing you put in the presentation actually work.</p>
+
+    <h2 id="posters">Posters need a pitch</h2>
+    <p>Poster sessions felt weird to me until I realized the poster isn't really the presentation. <em>You are.</em></p>
+
+    <p>Have a one- or two-minute version ready. Someone walks up, you give them the basic problem, what you did, and why it matters. If they're interested, you keep going. If they aren't, everyone gets to escape gracefully.</p>
+
+    <p>Also, don't let people ninja past you while pretending not to make eye contact. Say Hi. Ask whether they're familiar with the topic. Give them an easy opening.</p>
+
+    <p>Make the poster visual, and put a QR code somewhere obvious that points to the project, paper, demo, GitHub repository, or whatever you want people to remember afterward.</p>
+
+    <h2 id="logistics">Start the logistics stuff early</h2>
+    <p>Once you know you're going, register and start the travel process. Learn your institution's reimbursement rules before spending money, book the hotel before the conference block disappears, and keep the receipts. For international conferences, check travel authorization, insurance, and whatever institutional paperwork applies before you leave.</p>
+
+    <p>Before the trip, I look through the program and save the sessions I actually care about rather than trying to make those decisions every morning. Check the weather. Bring whatever adapters you need. And pack your charger. Seriously. Chargers may be the natural predator of conference attendees. People either forget them or mysteriously lose them.</p>
+
+    <p>As for dress code, I find photos from previous years much more useful than trying to decipher "business casual." Engineering conferences in particular are pretty relaxed these days. Jeans are generally fine, and a T-shirt with your university, lab, project, or company logo isn't unusual.</p>
+
+    <p>I personally still draw the line at sandals. Some standards must survive.</p>
+
+    <h2 id="dont-optimize">Don't optimize the conference too much</h2>
+    <p>It's very tempting to open the schedule and construct the perfect itinerary from 8 a.m. until 5 p.m.</p>
+
+    <p>I don't anymore.</p>
+
+    <p>Some of the most useful parts of conferences happen between the scheduled things: talking to someone after their presentation, finding another group using the same software, getting introduced to somebody whose paper you've read, or sitting down for coffee and discovering that two projects have basically been solving the same problem independently.</p>
+
+    <p>My original roundtable talk ended with networking, committee opportunities, and sharing stories with other attendees. Years later, I think I would emphasize that part even more.</p>
+
+    <p>Go to talks, obviously. Learn things. Present your work. But leave some empty space.</p>
+
+    <p>And when everything is over, go out with your coworkers and collaborators. Meet people. Have dinner. Have a drink if that's your thing. If there's an open bar, well, don't be shy. :-)</p>
+
+    <h2 id="checklist">My very short checklist</h2>
+    <div class="highlight">
+      <p><strong>Before submitting:</strong> right conference → right track → right format → PI and coauthors aligned → requirements checked → check the date again → submit.</p>
+      <p><strong>Before presenting:</strong> cut the slides → practice with a timer → prepare the short version → add a QR code if useful → test everything on site.</p>
+      <p><strong>Before traveling:</strong> register → book → check reimbursement and travel policies → save receipts → check weather → pick a few sessions → PACK YOUR CHARGER.</p>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</body>
+</html>
