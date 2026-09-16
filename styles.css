@@ -654,6 +654,70 @@ body.home .wrap { max-width: 1160px; }
   margin: .9rem 0 0 !important;
 }
 
+/* ---- Life: monthly record ---- */
+.month { max-width: 40em; margin-bottom: 2.25rem; }
+.month:last-child { margin-bottom: 0; }
+.month h3 { font-size: 1.2rem; margin-bottom: .5rem; }
+.month p { margin: 0 0 .4rem; font-size: .95rem; line-height: 1.75; }
+.month p:last-child { margin-bottom: 0; }
+.month .cat {
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--accent);
+  white-space: nowrap;
+  margin-right: .4em;
+}
+.month .cat:not(:first-child) { margin-left: .75em; }
+
+/* ---- Art: image galleries ---- */
+/* Groups of work inside one section, separated by a rule instead of their own
+   labelled sections. */
+.group {
+  margin: 3rem 0 .4rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+.group:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+
+/* Every piece keeps its own proportions; nothing is cropped or letterboxed.
+   A collection whose pieces all share one shape uses the grid, so the reading
+   order stays left to right (the zodiac cycle, the signs in order). */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.4rem 1.1rem;
+  align-items: start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gallery li { margin: 0; }
+.gallery a { display: block; border-bottom: none; }
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: border-color .15s;
+}
+.gallery a:hover img { border-color: var(--accent); }
+
+/* Mixed portrait and landscape in one collection: masonry via multi-column so
+   the columns pack tightly instead of leaving gaps under the short pieces. */
+.gallery-masonry {
+  display: block;
+  columns: 5 150px;
+  column-gap: 1.1rem;
+}
+.gallery-masonry li { break-inside: avoid; margin-bottom: 1.4rem; }
+
+@media (max-width: 640px) {
+  .gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .gallery-masonry { columns: 2 120px; }
+}
+
 /* Lock icon next to gated post titles on the essays index */
 .lock-icon {
   display: inline-block;
