@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>On Seniority · Chen Wang</title>
+<meta name="description" content="What seniority actually is, what it makes you responsible for, when it's legitimate to pull the seniority card, and why AI makes the distinction harder to fake and more important to get right.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div id="gate-overlay" class="gate-overlay">
+  <form id="gate-form" class="gate-card">
+    <h2>This page is locked</h2>
+    <p>Enter the password to continue.</p>
+    <input type="password" id="gate-password" autocomplete="off" required>
+    <button type="submit">Unlock</button>
+    <p id="gate-error" class="gate-error" hidden>Incorrect password.</p>
+  </form>
+</div>
+
+<div id="protected-content" style="display:none">
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/writing/" aria-current="page">Writing</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/writing/">Writing</a><span class="sep">·</span>September 2026</p>
+  <h1 class="page-title">On Seniority</h1>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#what-seniority-is">What seniority is</a></li>
+    <li><a href="#responsibility">What seniority makes you responsible for</a></li>
+    <li><a href="#pulling-the-card">When to pull the seniority card</a></li>
+    <li><a href="#what-ai-changes">What AI changes</a></li>
+    <li><a href="#better-model">A better model, and now a necessary one</a></li>
+    <li><a href="#back-to-the-question">Back to the question</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>A recent conversation at work got me thinking about seniority.</p>
+
+    <p>There was a technical disagreement, several reasonable arguments, and at some point the discussion stopped being about the arguments and started being settled by seniority. Nothing dramatic happened. Nobody was rude. The more senior view simply carried more weight, and the conversation moved on.</p>
+
+    <p>I was one of the senior people in the thread, and I kept my mouth shut.</p>
+
+    <p>That bothered me afterward. Not necessarily because I disagreed with the decision, but because I couldn't tell whether we had resolved the disagreement or simply ended it. More uncomfortably, I realized that I've had "senior" in my title for a while without ever examining what I think it actually means.</p>
+
+    <p>If I'm going to use that seniority, or deliberately choose not to, I should probably know what I think it's for.</p>
+
+    <p>So this is me trying to work that out.</p>
+
+    <h2 id="what-seniority-is">What seniority is</h2>
+    <p>The lazy definition is years of experience. It doesn't survive contact with reality. Ten years doing the same work isn't ten years of growth; it's one year repeated ten times.</p>
+
+    <p>When I look at the senior engineers I respect, what they share isn't time served. It's a specific kind of compounded judgment: faster pattern recognition across codebases, projects, people, and failure modes; taste for what will age badly even when it passes standardized tests; calibrated confidence that gets less absolute on hard problems rather than more; vision, for example, a habit of thinking past the next commit to what the decision looks like in three months; and tools for breaking down messy problems and running discussions that actually reach decisions.</p>
+
+    <p>The common thread is that all of these are forms of context. Not mere knowledge, context. Knowing which patterns apply here, which tradeoffs you've already paid for, which confident-sounding answer is actually load-bearing on assumptions that don't hold. None of this shows up on a resume, but it's immediately obvious in a room.</p>
+
+    <p>And context accumulates unevenly. You build it where you've spent your repetitions, not uniformly across everything you might be asked about. Which means seniority is directional, not scalar.</p>
+
+    <p>There's a clean way to say this in the philosophy literature, though I'll admit I worked backwards: I had the intuition and then went hunting for someone who'd formalized it. Linda Zagzebski's account of epistemic authority treats it as a three-place relation: a person A is an authority for person B in domain X. So, for example, for a junior engineer (B), a staff engineer (A) might be an authority when designing distributed systems (X), but that authority largely disappears when B is working on NLP (Y). There's no global authority. Move outside X and the relation thins out, regardless of how strong it was inside it.</p>
+
+    <p>So when we call someone "senior," the first thing to notice is that it's a relative term. There's no absolute senior; there's always someone more senior than the senior. The second is that we should really be asking: contextual judgment in which domain? The title is a proxy. The traits, bounded by domain, are the thing.</p>
+
+    <h2 id="responsibility">What seniority makes you responsible for</h2>
+    <p>So far I've been describing seniority as a kind of privilege, but I want to be fair about this pitfall.</p>
+
+    <p>The traits earn you weight in the room, but privilege comes with responsibility. What makes the weight legitimate, what makes it more than a polite social convention, is that it's paired with accountability for the outcome. The senior whose view shapes the decision is also the one who'll be debugging the system at 2 a.m. six months from now if it goes wrong. Their judgment carries weight because they have to live with the consequences of being listened to.</p>
+
+    <p>This is the pairing that does the work. Contextual judgment without stakes is just an informed opinion. Useful, but not authoritative. You have to have the stakes too.</p>
+
+    <p>It's also what gives the "directional, not scalar" point from earlier its real teeth. When a senior steps outside the domain they have stakes in, both sides of the pairing thin out at once: the judgment is less reliable and the accountability is weaker. Their view can still be useful input. But the weight it carried inside their domain doesn't transfer with them, because the responsibility that justified that weight stayed behind.</p>
+
+    <h2 id="pulling-the-card">When to pull the seniority card</h2>
+    <p>We've established what seniority is and what makes it legitimate. But seniority is a property you have. Authority is what you exercise when you use it to settle a question, close a discussion, or override someone else's call. They're related but not the same. You can have seniority and choose not to exercise authority. You can also exercise authority when your seniority doesn't actually back it up.</p>
+
+    <p>Which brings me to the question that made me uncomfortable in the first place: when does seniority legitimately convert into authority?</p>
+
+    <p>There are two kinds of authority at work in a team. Earned authority comes from being in a better epistemic position in the specific thing being discussed. You've seen this before, you've paid for the lesson, you can show why your view should carry weight. Assigned authority comes from title and org structure.</p>
+
+    <p>In an ideal world, healthy teams run almost entirely on the first. The second shows up when things get tense: to push a slow discussion to a decision or, ironically, to stop someone else from closing it prematurely.</p>
+
+    <p>Pulling the card is appropriate when two things are true at once: you have the seniority as defined above in this specific domain, and the cost of further deliberation actually exceeds the value of the discussion. Both conditions matter. Earned authority alone isn't enough; most decisions benefit from being argued out even when someone in the room could shortcut them. And the cost-of-deliberation argument alone is just impatience dressed up as wisdom.</p>
+
+    <p>Most of the time, neither condition holds. Which means most of the time, the title shouldn't be the thing settling the conversation.</p>
+
+    <p>Writing this out, I'm realizing why I subconsciously avoid leaning on my seniority. It doesn't actually resolve disagreement; it just suppresses it. The disagreement is still there. You just don't get to hear it anymore (and come on, you know you can still hear it in the back of your mind). Which means you also don't get to find out if you were wrong.</p>
+
+    <p>And I'm usually wrong :p</p>
+
+    <h2 id="what-ai-changes">What AI changes</h2>
+    <p>So far, this could have been written ten years ago. Here's where it gets specifically about now. AI is what makes everything weird.</p>
+
+    <p>Seniority historically developed through a particular loop: design and build something, ship it, watch it break, learn from the wreckage. Reflection was what converted experience into heuristics. Noticing the pattern, naming the tradeoff, remembering it next time. Without reflection, you got the ten-years-repeated-once engineer. With it, even a few good years compounded fast. That loop did most of the work of making seniors, IMO.</p>
+
+    <p>Now AI compresses the loop. Some of the traits I listed earlier, such as pattern recognition, trial and error, and scaffolding the architecture, are exactly what LLMs are good at. A junior with good AI usage can match a mid-level engineer on a lot of these. The trait gap between levels is narrowing in real time. And a senior trying to fight against AI using their own limited knowledge is likely to lose that fight.</p>
+
+    <p>But here's where I think the "AI is the new senior" framing gets it wrong: AI has pattern coverage without pattern judgment in context. Ha, back to context again. It doesn't know your team. It doesn't have the complete history. It doesn't know what the architecture looked like three months ago or what it's supposed to look like three months from now. It doesn't know your constraints, like I have to use this pattern to mitigate this specific problem. And it has no accountability chain.</p>
+
+    <p>The thing AI lacks is exactly the thing the earlier sections located as the core of seniority: contextual judgment under accountability. So AI isn't replacing seniors. It's commoditizing the trait-based signals we used to read seniors by.</p>
+
+    <p>This creates two failure modes that I think are showing up everywhere right now.</p>
+
+    <p>The first is that the pull toward positional authority gets stronger. When seniors can no longer point to "I can do things you can't" as easily, the temptation to fall back on "trust me, I've been here longer" grows. The trait gap shrinks; the title stays the same; the gap gets papered over with assigned authority. This becomes especially interesting around AI-assisted development, where neither years in the field nor job title necessarily translates into deeper expertise. Nobody has decades of experience with this way of working.</p>
+
+    <p>The second is that surface signals stop tracking underlying judgment. AI-assisted juniors can produce work that looks senior: clean code, good patterns, articulate PRs, all without necessarily having the contextual judgment underneath. Which means you can no longer infer earned authority from artifacts. You have to actually evaluate the reasoning, in this specific context, every time.</p>
+
+    <p>There's also a harder question I don't have an answer to: if juniors skip the phase where they ship the bad version and feel it break, what forges their judgment? Nobody's sure how judgment gets built when AI handles some of the work that used to build it, so we're arguing about the visible artifact instead.</p>
+
+    <p>The line blurs in cascading ways. Titles stop tracking competence because traits flatten across levels. Traits stop tracking judgment because AI produces them cheaply. What's left? The only thing that still reliably tracks seniority is the part neither AI nor titles can fake.</p>
+
+    <h2 id="better-model">A better model, and now a necessary one</h2>
+    <p>Zagzebski's account of epistemic authority makes essentially this point: deference is rational only when it tracks truth better than independent reasoning would. Once it stops doing that, the authority dissolves. Which means deference has to be earned per conversation, and revocable on argument.</p>
+
+    <p>In practice, on a team, this looks pretty simple. Discussions stay open until argument settles them. The senior's job isn't to exercise assigned authority. It's to contribute earned authority and, just as importantly, to know the difference.</p>
+
+    <p>The cost of confusing the two used to be a slightly worse decision. The cost now is that the team's whole signal-to-noise ratio for who actually knows what gets corrupted. The old proxies, titles, artifacts, articulate explanations, have stopped working as reliably. If seniors keep leaning on them, we lose the ability to tell who has real judgment in a given moment. Juniors can't tell who to learn from, leads can't tell whose opinion to lean on, and decisions get made on noise.</p>
+
+    <h2 id="back-to-the-question">Back to the question</h2>
+    <p>In theory, what I should do seems simple: keep the discussion open and make sure we're listening to the better argument, not just the more senior person, especially when everyone is still figuring things out.</p>
+
+    <p>But knowing isn't the same as doing. Speaking up costs something; there's also the friction of reopening a conversation everyone else is ready to close; the possibility of slowing down a perfectly adequate decision; and the social cost of challenging a hierarchy that exists partly because teams sometimes need hierarchy. Sometimes that cost is worth paying. Sometimes it isn't. Knowing the difference is its own skill, and not the same one as knowing what's right.</p>
+
+    <p>So this thought exercise only gets me halfway. I know better what I want seniority to mean, when I think it converts into authority, and why the distinction matters more under AI than it used to.</p>
+
+    <p>What I don't yet know is when to actually spend the capital to act on it.</p>
+
+    <p>That's the next problem.</p>
+  </article>
+</div>
+
+<footer>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</div>
+
+<script src="/writing/gate.js" defer></script>
+</body>
+</html>

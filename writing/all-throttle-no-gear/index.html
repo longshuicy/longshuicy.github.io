@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All Throttle, No Gear · Chen Wang</title>
+<meta name="description" content="Why research software engineering keeps succeeding by accident, and what a project lifecycle actually built for research, not corporate product work, might look like.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div id="gate-overlay" class="gate-overlay">
+  <form id="gate-form" class="gate-card">
+    <h2>This page is locked</h2>
+    <p>Enter the password to continue.</p>
+    <input type="password" id="gate-password" autocomplete="off" required>
+    <button type="submit">Unlock</button>
+    <p id="gate-error" class="gate-error" hidden>Incorrect password.</p>
+  </form>
+</div>
+
+<div id="protected-content" style="display:none">
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/writing/" aria-current="page">Writing</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/writing/">Writing</a><span class="sep">·</span>September 2026</p>
+  <h1 class="page-title">All Throttle, No Gear: Why Research Software Engineering Needs Its Own Project Management Model</h1>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#mapping-lifecycle">Mapping the Lifecycle to Research Software</a>
+      <ul class="toc-sub">
+        <li><a href="#initiation-planning">Initiation and Planning</a></li>
+        <li><a href="#execution">Execution</a></li>
+        <li><a href="#monitoring-controlling">Monitoring and Controlling</a></li>
+        <li><a href="#closing-phase">Closing</a></li>
+      </ul>
+    </li>
+    <li><a href="#successful-by-accident">Successful by Accident</a>
+      <ul class="toc-sub">
+        <li><a href="#stakeholders-fill-gaps">Stakeholders fill the missing phases</a></li>
+        <li><a href="#execution-masks">Execution masks the missing framework</a></li>
+        <li><a href="#long-running">Long-running projects build the lifecycle through experience</a></li>
+      </ul>
+    </li>
+    <li><a href="#own-playbook">Why Research Software Needs Its Own Playbook</a></li>
+    <li><a href="#closing-the-gap">Closing the Gap</a>
+      <ul class="toc-sub">
+        <li><a href="#starting-points">Some starting points</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-reframe">The Reframe</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>This year I found myself reflecting on one of the hardest research software projects I've worked on. The difficulty wasn't a hard algorithm or an unsolved technical problem. It was more like driving a manual car while someone keeps flooring the clutch: the engine roars, everyone can hear the effort, but the car barely moves. The team was working hard, but the project lacked alignment. Different stakeholders had different expectations of the destination, so we were pushing forward without ever fully engaging the gear.</p>
+
+    <p>Around the same time, I was working through the Google Project Management Certificate, mostly to broaden my perspective. I expected it to feel obvious. Instead, it gave me a framework for understanding what I had just experienced. Mapping the project onto the standard lifecycle (Initiation, Planning, Execution, Monitoring and Controlling, Closing), I noticed something uncomfortable: some phases happened almost by accident, while others barely happened at all.</p>
+
+    <p>That led me to a question: maybe research software projects do not struggle only because the problems are hard. Maybe we also lack a project lifecycle designed for the way research actually works. This is just one RSE's perspective, but it is a pattern I cannot unsee.</p>
+
+    <h2 id="mapping-lifecycle">Mapping the Lifecycle to Research Software</h2>
+    <p>Looking at the standard lifecycle through an RSE lens, the gaps become hard to ignore.</p>
+
+    <h3 id="initiation-planning">Initiation and Planning</h3>
+    <p>In theory, initiation defines the problem, identifies stakeholders, and establishes what success looks like. In research software, that often gets replaced by the grant proposal. But proposals are written to win funding, not to serve as execution roadmaps. They describe a vision, often before the technical approach is fully understood.</p>
+    <p>Sometimes there is no proposal to rely on. The project starts with "make it work" or "make it better," and everyone fills in the blanks differently. Without alignment on the problem, it becomes difficult to agree on what is being built, or what "done" means.</p>
+
+    <h3 id="execution">Execution</h3>
+    <p>Execution usually starts immediately because coding feels like progress. The pressure is almost always to start building, not to spend more time aligning expectations.</p>
+
+    <h3 id="monitoring-controlling">Monitoring and Controlling</h3>
+    <p>This phase is more subtle. On paper, we were not ignoring it. We often used Agile practices where appropriate. The issue was not the framework; it was the capacity to maintain it once the project became busy.</p>
+    <p>Standups and sprint planning kept work moving, but they did not answer deeper questions: Is the software maintainable? Is it reproducible? Are we still solving the right problem?</p>
+    <p>Quality became whatever nobody had complained about yet. Risks were handled reactively, usually after they became problems, with little buffer to respond intentionally.</p>
+
+    <h3 id="closing-phase">Closing</h3>
+    <p>Closing rarely looks like the textbook version. Research software projects often end because a grant expires, funding runs out, or a demo is needed for a deadline, not because the work reached a clear definition of done. The final weeks become a scramble to make whatever exists presentable. Eventually, the software ships, the paper gets published, the demo goes well, but the project never really closes. It feels like a spacecraft that launches successfully but never completes its mission, like Beagle 2, lost after reaching Mars. The launch gets celebrated. The destination never does.</p>
+
+    <h2 id="successful-by-accident">Successful by Accident</h2>
+    <p>At this point, it is fair to ask: if these gaps are so damaging, why do so many research software projects still succeed?</p>
+    <p>My guess is that incomplete lifecycle management does not always look like failure. Something else fills the gap. Looking back, I see three common patterns.</p>
+
+    <h3 id="stakeholders-fill-gaps">1. Stakeholders fill the missing phases</h3>
+    <p>Some projects work because stakeholders have already done much of the project management before the RSE team arrives. The problem is clear, requirements are aligned, and success criteria are understood. In these cases, the lifecycle still exists. It just happened before the engineers entered the room.</p>
+
+    <h3 id="execution-masks">2. Execution masks the missing framework</h3>
+    <p>This is the most dangerous category because it looks like success.</p>
+    <p>I know my own strengths. I am not the most technically brilliant programmer in the room, but I am effective because I execute quickly. I can move from ambiguity to implementation, adapt quickly, and find practical solutions. Those skills matter in research software. But they can also hide missing structures. A team can keep pressing the accelerator while the car is in the wrong gear. The engine gets louder, everyone feels the effort, but the destination does not get closer. Speed is not the same as direction. With the right structure, less effort can produce more impact because the team spends less time solving the wrong problems.</p>
+
+    <h3 id="long-running">3. Long-running projects build the lifecycle through experience</h3>
+    <p>Some mature projects appear to have strong project management, not because they started with a formal framework, but because they developed one over time.</p>
+    <p>Scientific committees create alignment. Years of iteration create development practices. Milestones, publications, and demonstrations become natural checkpoints. The lifecycle exists. It just evolved instead of being intentionally designed.</p>
+
+    <h2 id="own-playbook">Why Research Software Needs Its Own Playbook</h2>
+    <p>Why not just adopt existing project management frameworks?</p>
+    <p>The challenge is that many frameworks assume a stable scope, defined deliverables, and stakeholders who know requirements upfront. Research rarely works that way: a "requirement" is often a hypothesis. Success criteria change as findings emerge. Adapting to new knowledge is not poor planning; it is the nature of research.</p>
+    <p>In addition, research software also operates under different constraints. Dedicated project managers who understand the technical aspects are uncommon. RSEs often support multiple projects with very different needs, which makes estimation and planning hard. The rhythm is different too: grant cycles, conferences, student turnover, and changing scientific priorities create a project environment that traditional product models do not fully capture.</p>
+
+    <h2 id="closing-the-gap">Closing the Gap</h2>
+    <p>Closing this gap doesn't take an entire industry playbook. Nothing below is new; in fact every one of these habits already happens somewhere, in some project, some of the time. A PI writes down expectations once in a while. A team pauses to check quality after a bad bug. Someone remembers to write a technical report before they move on. The problem isn't that these practices don't exist, it's that they exist by chance, tied to whichever person happened to care that time.</p>
+    <p>What's missing is the next two steps: advocating for them as standard practice, then formalizing and enforcing them so they don't depend on who's in the room.</p>
+
+    <h3 id="starting-points">Some starting points</h3>
+    <ul>
+      <li><strong>Align stakeholders early.</strong> A lightweight stakeholder check can clarify who is involved, who makes decisions, and what each person is optimizing for. A PI may care about a high-impact publication. A staff engineer may care about maintainability. A graduate student may need a thesis outcome on a deadline. None of these goals are wrong, but they are not always the same.</li>
+      <li><strong>Create a lightweight project charter.</strong> Not a contract, but a shared record of the problem, current success criteria, decision ownership, and assumptions. It preserves the reasoning behind the code.</li>
+      <li><strong>Plan for change.</strong> Research will change. Requirements will evolve, experiments will fail, and new findings will reshape priorities. Teams should revisit assumptions regularly, manage risks proactively, and decide whether to avoid, mitigate, accept, or resolve them before they become emergencies.</li>
+      <li><strong>Protect quality.</strong> Code review, reproducibility checks, and architecture discussions cannot depend on spare time. Spare time rarely arrives.</li>
+      <li><strong>Close the loop.</strong> Academia already has closing rituals: papers, talks, posters, and reports. Research software should treat releases, technical reports, demos, and retrospectives the same way.</li>
+    </ul>
+
+    <h2 id="the-reframe">The Reframe</h2>
+    <p>None of this argues for importing corporate project management into research. It argues for something lighter: an approach that expects uncertainty, takes planning seriously, and treats quality and closing as real parts of the lifecycle, not afterthoughts. The goal is to keep the gear engaged, so effort turns into progress instead of noise.</p>
+    <p>I don't have the answer here. What's above is one RSE's observations and a few ideas worth exploring, not a methodology. But naming the gap is the first step. The next one is for the community to experiment, compare notes, and build practices that fit how research software actually gets made.</p>
+    <p>Here's a fact that gives me some hope: the Agile Manifesto wasn't handed down by a standards body. It came out of a group of software practitioners who gathered at a ski lodge in Snowbird, Utah, in 2001, frustrated with how software was being built and looking to compare notes on what actually worked. That's usually how new practice emerges, from people closest to the problem, experimenting toward something better. Maybe the next evolution in research software practice starts the same way: curiosity, trial and error, and everything the RSE community has already learned the hard way.</p>
+  </article>
+</div>
+
+<footer>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</div>
+
+<script src="/writing/gate.js" defer></script>
+</body>
+</html>
