@@ -464,6 +464,7 @@ body.home .wrap { max-width: 1160px; }
   border-top: none;
   padding-top: 0;
 }
+.prose h2 .gloss,
 .prose h3 .gloss {
   display: block;
   font-family: var(--display);
@@ -653,7 +654,7 @@ body.home .wrap { max-width: 1160px; }
   margin: .9rem 0 0 !important;
 }
 
-/* Lock icon next to gated post titles on the writing index */
+/* Lock icon next to gated post titles on the essays index */
 .lock-icon {
   display: inline-block;
   width: .72em;

@@ -4,7 +4,7 @@
   // SHA-256 of the shared password. Not real security on a public static
   // site, just enough to keep casual readers and search engines out.
   var PASSWORD_HASH = "c4b2bdf6e8fdc0786315f3b778ccaffa0556e7a3a3e57f7c50e9a91513321a75";
-  var STORAGE_KEY = "cw-writing-gate-unlocked";
+  var STORAGE_KEY = "cw-essays-gate-unlocked";
 
   var overlay = document.getElementById("gate-overlay");
   var content = document.getElementById("protected-content");
