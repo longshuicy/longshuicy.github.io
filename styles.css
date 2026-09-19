@@ -396,8 +396,12 @@ body.home .wrap { max-width: 1160px; }
 .card .embed iframe { height: 260px; }
 .card .embed-bar { margin: auto -1.25rem 0; padding-top: .9rem; border-bottom: 0; } /* margin-top: auto pins this to the card's bottom edge regardless of description length */
 
+/* Games run two across so each embed stays wide enough to read; Browsable keeps the default fit. */
+#games .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
 @media (max-width: 640px) {
-  .card-grid { grid-template-columns: 1fr; }
+  .card-grid,
+  #games .card-grid { grid-template-columns: 1fr; }
 }
 
 /* ---- Long-form article ---- */
