@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operate, Explore, Integrate · Chen Wang</title>
+<meta name="description" content="An RSE's Eat, Pray, Love: who absorbs the ambiguity in research software work, who gets to explore, and how the two can change each other.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/essays/" aria-current="page">Essays</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/essays/">Essays</a><span class="sep">·</span>September 2026</p>
+  <h1 class="page-title">Operate, Explore, Integrate: An RSE's Eat, Pray, Love</h1>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#operate">Operate: Absorb the Ambiguity</a></li>
+    <li><a href="#explore">Explore: Stay With the Unknown</a></li>
+    <li><a href="#integrate">Integrate: Let Each Change the Other</a></li>
+    <li><a href="#loop">Designing for the Loop</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>Given a choice between Stardew Valley and Zelda, I almost always choose Stardew. There is something satisfying about tending a system that already exists: plant, harvest, improve the farm, make things run a little more coherently. At the same time, I know there are people who see a mountain in the distance and immediately want to know what is behind it. Lately I have started to think RSE work has the same two instincts.</p>
+
+    <p>For most of the past few years, I was firmly in farming mode. My days were filled with meetings, Slack, sprint planning, PR reviews, debugging, releases, stakeholder requests, onsite coordination, documentation, access issues, and all the small things required to keep several projects moving at once. I was busy and productive, but I had very little appetite left for reading papers, learning a new algorithm, thinking deeply about architecture, or trying a technology simply because it looked interesting. Then a few major projects wrapped up, my calendar suddenly became much quieter, and the change was almost immediate: I started reading technical blogs again, experimenting with tools, taking courses, even writing.</p>
+
+    <p>Had I suddenly become curious again? Of course not. What changed was not my personality but the amount of clarity I had. <strong>Once I stopped spending all day absorbing everyone else's ambiguity, I finally had enough room to create some of my own.</strong></p>
+
+    <h2 id="operate">Operate: Absorb the Ambiguity</h2>
+    <p>Much of RSE work consists of turning something unclear into something actionable. We translate a researcher's half-formed idea into requirements, negotiate among collaborators with competing priorities, turn a graduate student's single-machine code into something reproducible, and handle the deployments, data migrations, access requests, and documentation that keep systems usable. This is central rather than peripheral work, since it is often what carries a project from an idea to a tool other people can use.</p>
+
+    <p>Its cognitive cost is easy to miss, because every vague requirement, undocumented assumption, and half-finished handoff creates uncertainty that someone has to absorb before handing back something concrete. When an RSE does this well, everyone else sees a usable tool and a clear direction without seeing the effort that produced them.</p>
+
+    <p>The work also tends to reproduce itself, because a broken deployment needs fixing more urgently than the deployment process needs redesigning, and an urgent request is faster to patch than to question. After enough of these cycles, action starts to replace thinking, and there is little time left to ask why the same problems keep returning. The load is uneven as well, since people who handle ambiguity well are given more of it: understanding the infrastructure means inheriting its problems, and being able to turn a messy conversation into a plan means being handed the next messy project. <strong>The better you are at keeping the current system coherent, the less room you have to imagine a different one.</strong></p>
+
+    <h2 id="explore">Explore: Stay With the Unknown</h2>
+    <p>Exploration asks for the opposite relationship with uncertainty, since instead of resolving ambiguity you deliberately step into a space where the answer is unknown. For an RSE, that might mean reading a paper on an unfamiliar algorithm, comparing technologies before anyone has committed to one, building an unfunded proof of concept, or attending a seminar outside your field.</p>
+
+    <p>This also explains why new technologies had started to feel tiring to me: after a day of closing other people's open loops, I had no wish to open new ones, and a new framework looked like one more unresolved demand rather than an opportunity. Exploration needs enough mental space to tolerate not knowing, and its payoff is usually indirect, whether that turns out to be a decision not to use something or a promising approach that does not yet fit any project. In academia that knowledge is rarely wasted, because research directions shift, collaborations appear unexpectedly, and funding often arrives before there is time to build expertise from scratch. Exploration also keeps RSEs connected to the research itself, so we can bring ideas to a new problem instead of waiting for a finished specification.</p>
+
+    <p>Exploration has its own imbalances, though, because a prototype is easier to show off than six months of maintenance, and some people end up with visible greenfield work while others inherit deployment, documentation, and long-term ownership. It can also slide into endless revision, with a new framework or rewrite arriving before the last one has settled, and at some point curiosity has to commit to a choice and live with it.</p>
+
+    <h2 id="integrate">Integrate: Let Each Change the Other</h2>
+    <p>Integration is less a third category of work than the mechanism that lets operation and exploration inform each other. Operation surfaces recurring problems, exploration generates alternatives, and integration decides what should change as a result, whether that means turning a prototype into a supported tool, redesigning a workflow that keeps causing the same pain, or deciding not to adopt something and recording why so nobody has to rediscover the lesson later.</p>
+
+    <p>Without it, operational experience stays local and exploratory work stays personal, so the same fires get put out repeatedly and useful experiments disappear when their authors move on. This matters especially for RSEs, whose role already sits at the boundaries between research and engineering and between one-off prototypes and systems that must outlive the original grant.</p>
+
+    <h2 id="loop">Designing for the Loop</h2>
+    <p>The practical question is not only how to give people more time to explore, but also who carries the ambiguity and whether they ever get to put it down. Teams can protect real blocks of uninterrupted time instead of counting a scattered hour between meetings as deep work, and rotate maintenance, coordination, greenfield work, and investigation so nobody is permanently cast as either the reliable one or the ideas person. It also helps to expect exploratory work to leave behind something others can use, such as a benchmark, design note, or failure report, and to treat recurring operational pain as a reason to redesign rather than patch again.</p>
+
+    <p>Senior RSEs may need particular protection, because experience attracts reviews, mentoring, architecture decisions, and difficult stakeholders, and an organization should not spend its most experienced people entirely on making uncertainty manageable for everyone else. AI can help by stripping boilerplate out of operational work and making experimentation cheaper, but it also makes it easier to mistake rapid sampling for understanding. Generating a prototype is now cheap, while deciding whether it belongs in the system and whether anyone should maintain it five years from now is as hard as ever.</p>
+
+    <p>I'll probably still be tending my turnips in Stardew while someone else is already halfway up the mountain. <strong>A good RSE environment does not require everyone to prefer the same mode, as long as it has people who keep messy systems working, people who explore beyond them, and a deliberate way for what each learns to change how the other works.</strong></p>
+  </article>
+</div>
+
+<footer>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</body>
+</html>
