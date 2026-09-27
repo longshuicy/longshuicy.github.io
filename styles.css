@@ -747,3 +747,7 @@ body.home .wrap { max-width: 1160px; }
   color: var(--muted);
 }
 .item h3 a:hover .lock-icon { color: var(--accent); }
+
+/* ---- Reading time and colophon ---- */
+.meta .sep { margin: 0 .5em; }
+.colophon-note { margin: 0 0 .4rem; }
