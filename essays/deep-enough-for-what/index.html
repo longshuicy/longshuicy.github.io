@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep Enough for What? · Chen Wang</title>
+<meta name="description" content="Technical depth, status, and anxiety in software engineering: why a collaborative profession keeps asking how technical its practitioners are, and what to ask instead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/essays/" aria-current="page">Essays</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/essays/">Essays</a><span class="sep">·</span>October 2026<span class="sep">·</span>7 min read</p>
+  <h1 class="page-title">Deep Enough for What?</h1>
+  <p class="lede">Technical depth, status, and anxiety in software engineering</p>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#certification-exam">A Private Certification Exam</a></li>
+    <li><a href="#ladder-forms">How a Ladder Forms</a></li>
+    <li><a href="#one-ladder">Why One Ladder Does Not Fit</a>
+      <ul class="toc-sub">
+        <li><a href="#responsibility">Depth is relative to responsibility</a></li>
+        <li><a href="#depending">Depending on others is normal</a></li>
+        <li><a href="#compounds">Expertise compounds</a></li>
+      </ul>
+    </li>
+    <li><a href="#rigor">If There Is No Ladder, What Does Rigor Mean?</a></li>
+    <li><a href="#logic-rhetoric">Logic, Rhetoric, and AI</a></li>
+    <li><a href="#arena">The Arena</a></li>
+    <li><a href="#ecology">From Hierarchy to Ecology</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>Much of the anxiety I hear among engineers lately comes from AI, and from the uneasy question of what still makes us technical once a model can write much of the code. One response I have noticed, in others and in myself, is to work harder at <em>looking</em> technical, as if the safest place to stand were wherever the machine has not yet arrived.</p>
+
+    <p>AI did not create this anxiety so much as sharpen one that software has carried for a long time. The older sense of engineer, rooted in ingenuity and in devising things that work (<a href="https://www.etymonline.com/word/engineer" target="_blank" rel="noopener">Etymonline</a>), describes a job of inheriting systems, integrating other people's work, and keeping things useful under real constraints, yet our field keeps reducing that job to a narrower question: how technical is this person? Differences in expertise are real, but I want to ask why a profession built on collaborative problem-solving so often makes its practitioners feel they must keep proving how technical they are.</p>
+
+    <h2 id="certification-exam">A Private Certification Exam</h2>
+    <p>For a while I was very determined about LeetCode despite being quite bad at it, and easy problems frustrated me enough that the subject came up in counselling, where my therapist asked a simple question: what are you practicing for? I was not interviewing and did not need it for my work, so looking back I had quietly turned algorithms into a private certification exam, one in which struggling meant I was somehow not a proper software engineer.</p>
+
+    <p>Almost any subject can become that kind of test, whether operating systems, compilers, databases, or now AI, depending on what the people around us treat as evidence of seriousness. Research from the Developer Success Lab describes <a href="https://www.drcathicks.com/post/new-research-from-me-ai-skill-threat-contest-cultures-on-software-teams" target="_blank" rel="noopener">"contest cultures"</a> in software, where competition and displays of innate brilliance are associated with greater anxiety about skills and greater threat as technology changes. The subjects themselves are worth learning; the trouble begins when the question shifts from "what would I like to understand?" to "what should somebody at my level already know?", and knowledge becomes something we display to show we belong rather than something we use.</p>
+
+    <h2 id="ladder-forms">How a Ladder Forms</h2>
+    <p>I do not think most engineers consciously compete to prove they are smarter than everyone else; more often, difficult knowledge earns respect, respect becomes prestige, and prestige rewards display, until some work starts to look inherently more serious, such as building infrastructure rather than consuming it, or implementing from scratch rather than integrating existing pieces. In the RSE world, the person implementing a new numerical method looks obviously technical, while the person who makes it reproducible, reconciles its data, deploys it, and builds the interface collaborators actually use may seem to have done only what Tanya Reilly calls <a href="https://noidea.dog/glue" target="_blank" rel="noopener">"glue work"</a>, even when that is where the hard part of the problem lived. Recognizing differences in knowledge is not the mistake; the mistake is assuming those differences arrange everyone on a single ladder.</p>
+
+    <h2 id="one-ladder">Why One Ladder Does Not Fit</h2>
+
+    <h3 id="responsibility">Depth is relative to responsibility</h3>
+    <p>Someone modifying a database engine is responsible for the correctness of the engine, so they need knowledge most of us can treat as a solved problem, while someone consuming APIs, cleaning data, or building dashboards is responsible for something different but no less real: which records were dropped, whether units and assumptions survived the trip between sources, and whether a chart claims more than the data supports. <strong>The useful question is therefore not <em>is this person technical?</em> but <em>deep enough for what?</em>, and the answer is deep enough to stand behind the decisions we actually make.</strong> Because responsibility sets a floor as well as a ceiling, this is not an argument for shallowness, and it is also why I tell anxious junior engineers that depth tends to follow responsibility, so they will learn what they need when their work calls for it.</p>
+
+    <h3 id="depending">Depending on other people's expertise is normal</h3>
+    <p>None of us writes the operating system, compiler, libraries, and hardware beneath our applications anymore, so good engineering means knowing what we can safely rely on, which assumptions matter, and when to look beneath an interface. One person's depth becomes another person's starting point, and that is a reason to value deep specialists rather than to discount them.</p>
+
+    <h3 id="compounds">Expertise compounds through collaboration</h3>
+    <p>On a research project, one person may understand the science, another the infrastructure, another the data, and another how to connect them, and their knowledge compounds rather than competing for a single slot called "technical." A prestige model reads <em>you know something I do not</em> as rank, while a collaborative model reads it as possibility, and although that does not make every contribution equal, it means another person's expertise should expand what we can do rather than diminish what I am worth.</p>
+
+    <h2 id="rigor">If There Is No Ladder, What Does Rigor Mean?</h2>
+    <p>Rejecting hierarchy can sound like lowering standards, and as software runs more consequential systems, the comparison to licensed professions is understandable. Those credentials, however, usually regulate a defined responsibility rather than certify universal prestige, and "software engineer" covers such a range of work that NCEES discontinued its Software Engineering PE exam after 2019 for lack of participation (<a href="https://ncees.org/ncees-discontinuing-pe-software-engineering-exam/" target="_blank" rel="noopener">NCEES</a>). Since software can run while being insecure, inaccessible, or irreproducible, and since in RSE an elegant implementation that produces scientifically invalid results has failed as surely as one that crashes, I would rather attach rigor to risk and responsibility than to a body of knowledge used as a status test, because professionalism, to me, means knowing what we owe the people who depend on our work.</p>
+
+    <h2 id="logic-rhetoric">Logic, Rhetoric, and AI</h2>
+    <p>A similar hierarchy appears between formal reasoning, such as mathematics and code, and informal reasoning carried out in natural language, as though the first were the real work and the second merely talk. In practice, the two solve different parts of a problem: formal reasoning tests whether conclusions follow from premises, while informal reasoning is how people settle what the premises should be, and turning "I need to compare these models" into a computation requires both.</p>
+
+    <p>AI makes this harder to ignore, because natural language is becoming an interface to computation while fluent nonsense makes verification more important, so the engineers who do well with AI will not be the ones who look most technical but the ones who can say clearly what they mean and check carefully what actually happened.</p>
+
+    <h2 id="arena">The Arena</h2>
+    <p>Brené Brown uses Theodore Roosevelt's "arena" to describe vulnerability, the willingness to act under uncertainty and risk failure (<a href="https://brenebrown.com/book/daring-greatly/" target="_blank" rel="noopener">Daring Greatly</a>), and technical status makes that harder, because if my identity depends on knowing things, then "I don't know" and "can you explain that?" become difficult to say. Status can also make it comfortable to watch from the stands rather than step into the arena, and I have spent my share of time there, explaining why the architecture is wrong, why the frontend is poorly designed, why the research team lacks engineering discipline, or why somebody else should simply learn the right technology. Those criticisms are sometimes correct, but the more useful work comes after them: teaching the tool, writing the migration, persuading people to adopt the better design, and staying long enough to see the idea meet reality.</p>
+
+    <p>Much of that is glue work, and in RSE its output is often not an impressive repository but room for other engineering to happen. Pinning down what a project actually needs, agreeing on the specs and contracts between its parts, and making sure everyone means the same thing by the same words takes the ambiguity out of a problem so that others can focus on its hardest parts, and that is technical work in its own right, even if it is easy to overlook because, done well, nobody has to argue about it later. It should not be romanticized either, since people who are good at absorbing ambiguity can end up absorbing everyone's, and the point is not to put glue work at the top of a new hierarchy but to question why we need one at all.</p>
+
+    <h2 id="ecology">From Hierarchy to Ecology</h2>
+    <p>I still want technical depth, and I admire people who understand a subject far better than I do, but a healthy engineering team looks more like an ecology than a ladder, with different kinds of depth, judgment, communication, and integration, and the same person occupying different places in it over a career. <strong>Perhaps we keep proving ourselves because we have asked expertise to do two jobs at once, solving problems and telling us where we rank</strong>, and as AI reshapes what our work looks like, I would like to keep the first job and loosen our grip on the second.</p>
+
+    <p>Another person's depth does not have to make the rest of us smaller; in a collaborative profession, it means we can build more together.</p>
+  </article>
+</div>
+
+<footer>
+  <p class="colophon-note">Written with AI assistance. See the <a href="/essays/#colophon">colophon</a>.</p>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</body>
+</html>
