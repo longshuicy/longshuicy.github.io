@@ -15,6 +15,13 @@
   function reveal() {
     overlay.style.display = "none";
     content.style.display = "";
+    // The <title> and description are kept generic so a locked page gives
+    // nothing away in the tab, a bookmark, or a link preview. Once unlocked,
+    // put the real title back from the article heading.
+    var heading = content.querySelector("h1");
+    if (heading) {
+      document.title = heading.textContent.trim() + " \u00b7 Chen Wang";
+    }
   }
 
   function toHex(buffer) {
