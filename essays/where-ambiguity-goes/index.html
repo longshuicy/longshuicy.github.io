@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Ambiguity Goes · Chen Wang</title>
+<meta name="description" content="Research software engineering, invisible labor, and the questions nobody has resolved: what it means to absorb ambiguity, who ends up carrying it, and where it should go.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/essays/">Essays</a><span class="sep">·</span>October 2026<span class="sep">·</span>10 min read</p>
+  <h1 class="page-title">Where Ambiguity Goes</h1>
+  <p class="lede">Research software engineering, invisible labor, and the questions nobody has resolved</p>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#nature">The Nature of Ambiguity in Research</a></li>
+    <li><a href="#commitment">From Possibility to Commitment</a>
+      <ul class="toc-sub">
+        <li><a href="#error-bars">Dropping the error bars</a></li>
+        <li><a href="#failure">When scientific failure becomes engineering failure</a></li>
+      </ul>
+    </li>
+    <li><a href="#who-absorbs">Who Absorbs Ambiguity?</a>
+      <ul class="toc-sub">
+        <li><a href="#create-space">The people who create space</a></li>
+        <li><a href="#linchpin">The linchpin phenomenon</a></li>
+      </ul>
+    </li>
+    <li><a href="#invisible-work">The Invisible Work of Making Things Possible</a>
+      <ul class="toc-sub">
+        <li><a href="#four-weeks">Four weeks without progress</a></li>
+        <li><a href="#count">Why doesn't this work count?</a></li>
+      </ul>
+    </li>
+    <li><a href="#judgment">Engineering as Judgment</a>
+      <ul class="toc-sub">
+        <li><a href="#three-kinds">Three kinds, three destinations</a></li>
+        <li><a href="#error-bars-in-practice">Passing it on with the error bars</a></li>
+        <li><a href="#standing">Who gets to route it</a></li>
+      </ul>
+    </li>
+    <li><a href="#ai">Ambiguity in the Age of AI</a>
+      <ul class="toc-sub">
+        <li><a href="#cheap">When implementation becomes cheap</a></li>
+        <li><a href="#more-software">More software, more ambiguity?</a></li>
+      </ul>
+    </li>
+    <li><a href="#where">Where Should Ambiguity Go?</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>Recently I wrote two essays about research software engineering. The first, <a href="/essays/operate-explore-integrate/"><em>Operate, Explore, Integrate</em></a>, asked why operational work so often crowds out exploration. The second, <a href="/essays/deep-enough-for-what/"><em>Deep Enough for What?</em></a>, asked why some kinds of engineering expertise get more recognition than others. Looking back, both were circling something I hadn't quite put into words.</p>
+
+    <p>Over the past few years, more of my time has gone to work that is necessary and demanding but hard to describe. Much of it happens before implementation: figuring out what people want, reconciling conflicting expectations, negotiating resources, and making decisions without enough information or clear authority. At its most extreme, it meant spending the first four weeks of a project writing almost no code, and feeling the whole time like I was falling behind.</p>
+
+    <p>I've started calling this <em>absorbing ambiguity</em>. By absorbing, I mean taking unresolved questions onto myself so others can keep moving: investigating what isn't known, negotiating what isn't agreed, making calls nobody owns, and carrying the cost of whatever stays unresolved. This essay is my attempt to understand it: what exactly we are absorbing, why it builds up around certain people, whether it ever disappears, and why managing it so often goes unrecognized, even by the people doing it.</p>
+
+    <h2 id="nature">The Nature of Ambiguity in Research</h2>
+
+    <h3>Ambiguity is not simply unclear requirements</h3>
+    <p>In conventional software development, ambiguity is something to clear up before implementation. Someone wants a feature but can't say exactly what it should do, so we gather requirements and work toward a specification. Research doesn't quite work that way. A scientist may not know what analysis they need until they see the data, and a prototype may reveal problems or possibilities nobody expected. Understanding the problem is often part of the research itself.</p>
+
+    <p>I use <em>ambiguity</em> loosely here, as an umbrella for three things that often arrive together: facts nobody knows yet, interpretations people don't agree on, and decisions nobody owns. Organizational theorists <a href="https://doi.org/10.1287/mnsc.32.5.554" target="_blank" rel="noopener">Daft and Lengel</a> separate the first two as <em>uncertainty</em> and <em>equivocality</em>, and the distinction matters, because more investigation can reduce uncertainty but rarely settles a disagreement.</p>
+
+    <p>Some of this ambiguity is inherent to research and even productive, because it is where possibilities live. Some comes from conflicting incentives, organizational arrangements, or decisions nobody has made. We tend to assume clarity is available if you work hard enough for it. Sometimes it isn't. Then progress means finding an answer good enough to act on, and agreeing to move forward with what remains unresolved. Making ambiguity actionable is not the same as eliminating it.</p>
+
+    <h2 id="commitment">From Possibility to Commitment</h2>
+
+    <h3 id="error-bars">Dropping the error bars</h3>
+    <p>I find it useful to borrow an idea from <em>uncertainty propagation</em>. Uncertainty in one part of a system carries through to everything downstream, and ambiguity in an early decision carries through to the commitments that follow it. It can be reduced through investigation or agreement, but it can also be passed along, amplified, or hidden.</p>
+
+    <p>Consider a typical project. A researcher has an idea. A proposal turns it into objectives and deliverables, which become milestones and eventually engineering tasks. At every step the language gets more definite. "We would like to explore whether this is possible" becomes "the software will provide this capability." The error bars are quietly dropped along the way, but the unknowns are still there. So when an engineer finally runs into one, it looks like an implementation problem rather than a question inherited from much earlier.</p>
+
+    <h3 id="failure">When scientific failure becomes engineering failure</h3>
+    <p>I once heard someone say that <em>science is allowed to fail, but engineering isn't.</em> A disproven hypothesis can still be a valuable result. Software that doesn't deliver a promised capability is just a failure.</p>
+
+    <p>Research software engineering sits right between those expectations. We build on methods still being developed and commit to deliverables whose feasibility depends on research that isn't finished. The ambiguity doesn't go away when a problem enters engineering. What changes is the expectation of delivery. This gets harder when the relationship feels like a contract rather than a collaboration, because the questions were set somewhere else and we're brought in to deliver the answer.</p>
+
+    <p><strong>Ambiguity can originate upstream while accountability for its consequences falls downstream.</strong></p>
+
+    <h2 id="who-absorbs">Who Absorbs Ambiguity?</h2>
+    <p>If ambiguity flows downstream, someone has to catch it. Some people catch it because their role demands it, and others regardless of what their role says.</p>
+
+    <h3 id="create-space">The people who create space</h3>
+    <p>Earlier in my career, I didn't really understand what some of the busiest people around me did. Their calendars were full of meetings, their days went to email and administration, and they were rarely hands-on with the tools their teams used. As a junior, I measured contribution by what I could see, so much of their work didn't register with me.</p>
+
+    <p>It took maturity to understand what I'd been missing. A manager might spend hours reconciling priorities, negotiating resources, or protecting a team from competing demands. Their contribution is often the conditions that let others focus. Organizational theory, going back to James D. Thompson's <a href="https://doi.org/10.4324/9781315125930" target="_blank" rel="noopener"><em>Organizations in Action</em></a> (1967), calls this <em>buffering</em>, and the irony is that the better it works, the less visible it becomes.</p>
+
+    <h3 id="linchpin">The linchpin phenomenon</h3>
+    <p>The same pattern appears among individuals too, only without a title to explain it. Some people step in whenever they see an unresolved problem. They connect people, chase dependencies, and keep things moving until they become the <em>linchpins</em> everyone turns to when something falls between responsibilities. Others notice the same problems but won't take ownership until their role is clarified. Half jokingly, I think of them as <em>ambiguity immune</em>, not because they handle it better, but because it never seems to stick to them.</p>
+
+    <p>I used to see this as a difference in initiative. Now I think it's also a difference in how people manage risk. Every successful intervention sets a precedent, and the organization learns whom to call when nobody knows what to do. Waiting for a clear role can look like passivity, but it is often a reasonable way to avoid becoming everyone's default catcher. The linchpins take the opposite risk and pay for it differently: there is a peculiar exhaustion in becoming very good at making other people's ideas possible while finding less room to explore your own. Ambiguity accumulates not only around the most capable people, but around those least willing to leave a problem unresolved.</p>
+
+    <p>I learned the other side of this the uncomfortable way. When I deliberately held back, someone else often stepped in, and things turned out fine. It stung a little, but it was also a relief. Knowing when <em>not</em> to absorb ambiguity is a professional skill in its own right.</p>
+
+    <h2 id="invisible-work">The Invisible Work of Making Things Possible</h2>
+
+    <h3 id="four-weeks">Four weeks without progress</h3>
+    <p>I want to go back to those four weeks, because that's where all of this stopped being abstract for me.</p>
+
+    <p>The project was interdisciplinary, the requirements were vague, and even the stakeholders hadn't agreed on what it should become. Instead of coding, I met with people, researched options, reconciled opinions, negotiated staffing, and drafted milestones. My days were full, I felt terribly unproductive, and I got a full taste of that peculiar exhaustion. At some point I noticed my calendar looked exactly like the ones I used to puzzle over.</p>
+
+    <p>Eventually we reached a consensus. It wasn't technically optimal or anyone's favorite, but it was acceptable enough, and once the MVP was defined we built it remarkably quickly. Looking back, those four weeks don't seem excessive. If anything, they seem short.</p>
+
+    <h3 id="count">Why doesn't this work count?</h3>
+    <p>At the time, though, I couldn't see it that way, and I wasn't the only one. I had no idea how long implementation would take, so every meeting felt like time stolen from the schedule. The stakeholders and funders asking for updates were measuring progress the same way, and an update about meetings rather than features read like an admission that nothing had happened. Only afterward did I see that the negotiations and decisions weren't interruptions to progress. They were what made progress possible. Even then, I struggled to count them as achievements, and I'm not sure anyone else counted them either.</p>
+
+    <p>We have clear ways to show engineering output: commits, deployments, features, milestones. We have almost none for a disagreement resolved before it derails a project, or a feature never built because someone questioned an assumption. Once everyone agrees on a requirement, it looks obvious. Once resources are secured, it seems like they were always there. The work becomes invisible precisely because it succeeded.</p>
+
+    <h2 id="judgment">Engineering as Judgment</h2>
+    <p>If absorbing ambiguity is valuable but costly, the goal shouldn't be to absorb more and more of it. The more useful skill is recognizing what kind of ambiguity is in front of us, because each kind belongs somewhere different.</p>
+
+    <h3 id="three-kinds">Three kinds, three destinations</h3>
+    <p><em>Uncertainty</em>, facts nobody knows yet, belongs with investigation. A spike, a prototype, or a look at the data can shrink it, so this is the kind engineers are best placed to absorb.</p>
+
+    <p><em>Equivocality</em>, interpretations people don't agree on, belongs with the people who disagree. Those four weeks were mostly this kind, and no prototype would have shortened them. An engineer can make the options concrete enough to argue about, but the arguing belongs to the people with competing interests.</p>
+
+    <p><em>Decisions nobody owns</em> belong with whoever has the authority to make them. Making these calls ourselves feels efficient, but each one teaches the organization to route the next one to us. Better to name the decision, name its owner, and say what is blocked until it is made.</p>
+
+    <p>Some ambiguity fits none of these and is better left open. I find this hardest when deciding how much engineering is enough. A script on someone's laptop that produces the right graph may be all that's needed, and an experienced colleague once observed that between project cycles, engineers sometimes invent work because little actually needs doing. I recognized the temptation, because building something is often more comfortable than sitting with an open question. But the opposite mistake is just as real: a throwaway prototype becomes infrastructure, and a workflow built for one dataset ends up serving a whole community. We have to decide before we know which future will happen, and sometimes the honest decision is to build for the near one and write down what would change our minds.</p>
+
+    <h3 id="error-bars-in-practice">Passing it on with the error bars</h3>
+    <p>Passing ambiguity on is not the same as dropping it on someone. The difference is whether the error bars travel with it, and often that is just a matter of wording: a milestone framed as a question rather than a promise, a deliverable that names what it depends on, a status update that names the blocker and who owns it, or a note on a prototype saying what it was never meant to do. None of these resolves anything. They keep the inherited question visible, so whoever runs into it later doesn't mistake it for their own failure.</p>
+
+    <h3 id="standing">Who gets to route it</h3>
+    <p>All of this assumes standing. Telling a PI that a decision is theirs is far easier for a senior collaborator than for a junior engineer or a contractor, for whom handing a question back can read as failing to deliver. For them, absorbing is often not a choice. So this is also advice for the PIs, managers, and program officers who decide whether the error bars survive from proposal to task list, and who can make it safe to say "this isn't settled yet."</p>
+    <h2 id="ai">Ambiguity in the Age of AI</h2>
+
+    <h3 id="cheap">When implementation becomes cheap</h3>
+    <p>AI changed how I see those four weeks. At the time I assumed implementation would take most of the schedule, so every week of meetings felt like a week lost. Then, once the specs were set, AI-assisted implementation moved astonishingly fast. The negotiation didn't get shorter. Everything after it did, so what I had treated as overhead became a much larger share of the work.</p>
+
+    <p>I suspect engineers feel this shift before stakeholders and funders do. Some see weeks of discussion without code and wonder why nothing has happened, the same question I once asked about those full calendars. Others see AI build an app in minutes and wonder why software still needs real investment. Both miss what happens around implementation: AI can generate a plausible answer, but not a commitment everyone accepts.</p>
+
+    <h3 id="more-software">More software, more ambiguity?</h3>
+    <p>Cheaper implementation may also create more ambiguity, not less. When prototyping was expensive, we chose which of five ideas deserved a developer's time. Now we can build all five, which is genuine progress, but each one creates expectations: someone wants it deployed, someone wants a feature, someone wants it on different data, and an experiment quietly becomes an obligation. Ambiguity that used to keep possibilities open now hardens into commitment sooner, often before anyone has decided it should.</p>
+
+    <p><strong>As implementation gets cheaper, engineering may become more about deciding what should be built, how well it needs to work, and which consequences we're willing to accept.</strong></p>
+
+    <h2 id="where">Where Should Ambiguity Go?</h2>
+    <p>I started out thinking about absorbing ambiguity: taking it onto myself so others can keep moving. But absorbing everything means carrying the cost of everything left unresolved, and it isn't the only option. Some ambiguity can be passed on, as long as the error bars go with it. Some belongs with someone better placed to carry it. Some is better left open. Since it always lands somewhere, the real skill is moving it well: deciding which parts are mine to absorb, and where the rest should go.</p>
+
+    <p>Those four weeks left almost nothing in the repository. Now that the code comes cheaply, I suspect weeks like that are becoming most of the job.</p>
+  </article>
+</div>
+
+<footer>
+  <p class="colophon-note">Written with AI assistance. See the <a href="/essays/#colophon">colophon</a>.</p>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</body>
+</html>

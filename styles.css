@@ -458,15 +458,7 @@ body.home .wrap { max-width: 1160px; }
   font-size: 1.2rem;
   line-height: 1.3;
   margin: 2.4rem 0 .8rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--line);
   scroll-margin-top: 2rem;
-}
-.prose h3:first-of-type,
-.prose h2 + h3,
-.diagram + h3 {
-  border-top: none;
-  padding-top: 0;
 }
 .prose h2 .gloss,
 .prose h3 .gloss {
