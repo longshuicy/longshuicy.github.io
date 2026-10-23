@@ -184,6 +184,11 @@
       <p>Rule of thumb: commit whenever you'd hate to lose the current state, push whenever you want visibility; before a review, before stepping away, or whenever you want a second opinion.</p>
     </div>
 
+    <p>The same idea as a model railway. Your fenced yard is your laptop: every commit adds a car, and the cars wait behind the gate until you push. Then they roll out together to the team's siding, and only a reviewed pull request sends them through the turnout onto main.</p>
+    <figure class="diagram live-figure">
+      <iframe src="commit-push/commit-push.html" title="Interactive figure: a railway yard where commits wait behind a gate until a push sends them to the shared siding" style="display:block;width:100%;height:520px;border:0"></iframe>
+    </figure>
+
     <div class="highlight">
       <h3 id="quick-exercise">Quick exercise</h3>
       <ol>
@@ -285,6 +290,18 @@
       </svg>
       <figcaption>Every click that "loads" something runs this full loop; that's what the loading spinner is waiting on.</figcaption>
     </figure>
+
+    <p>The same restaurant, built as a machine you can run. The dining room sits upstairs and the kitchen downstairs, joined by a dumbwaiter. Press a menu button and watch the order ride a belt into the dumbwaiter and down, the kitchen check it and fetch from the pantry, and the dish come back up and along the belt to the table before the cloche lifts.</p>
+    <figure class="diagram live-figure">
+      <iframe src="request-loop/request-loop.html" title="Interactive figure: a restaurant dumbwaiter carrying an order down to the kitchen and the dish back up" style="display:block;width:100%;height:680px;border:0"></iframe>
+    </figure>
+    <script>
+      addEventListener("message", (event) => {
+        const height = event.data && event.data.requestLoopHeight;
+        if (!height) return;
+        for (const frame of document.querySelectorAll(".live-figure iframe")) if (frame.contentWindow === event.source) frame.style.height = height + "px";
+      });
+    </script>
 
     <h3 id="frontend">Frontend<span class="gloss">"the dining room and furniture the guests see"</span></h3>
     <p>Everything visual and interactive: layout, buttons, animations, scroll and click behavior.</p>
