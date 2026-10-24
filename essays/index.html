@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Essays · Chen Wang</title>
-<meta name="description" content="Essays by Chen Wang on software, science, and the people in between.">
+<title>Locked · Chen Wang</title>
+<meta name="description" content="This page is password protected.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
@@ -12,6 +13,17 @@
 <link rel="icon" href="/assets/logo.png">
 </head>
 <body>
+<div id="gate-overlay" class="gate-overlay">
+  <form id="gate-form" class="gate-card">
+    <h2>This page is locked</h2>
+    <p>Enter the password to continue.</p>
+    <input type="password" id="gate-password" autocomplete="off" required>
+    <button type="submit">Unlock</button>
+    <p id="gate-error" class="gate-error" hidden>Incorrect password.</p>
+  </form>
+</div>
+
+<div id="protected-content" style="display:none">
 <div class="wrap">
 <header class="site-head">
   <a class="brand" href="/">Chen Wang</a>
@@ -35,38 +47,57 @@
   <h2>Posts</h2>
   <div class="item">
     <h3><a href="/essays/no-skill-for-deciding/">No Skill for Deciding</a></h3>
+    <p class="theme">Theme: Ambiguity and Decision-Making</p>
     <p class="meta">October 2026<span class="sep">·</span>3 min read</p>
   </div>
   <div class="item">
     <h3><a href="/essays/where-ambiguity-goes/">Where Ambiguity Goes</a></h3>
+    <p class="theme">Theme: Ambiguity and Decision-Making</p>
     <p class="meta">October 2026<span class="sep">·</span>10 min read</p>
   </div>
   <div class="item">
     <h3><a href="/essays/deep-enough-for-what/">Deep Enough for What? Technical Depth, Status, and Anxiety in Software Engineering</a></h3>
+    <p class="theme">Theme: Status and Seniority</p>
     <p class="meta">October 2026<span class="sep">·</span>7 min read</p>
   </div>
   <div class="item">
     <h3><a href="/essays/operate-explore-integrate/">Operate, Explore, Integrate: An RSE's Eat, Pray, Love</a></h3>
+    <p class="theme">Theme: Ambiguity and Decision-Making</p>
     <p class="meta">September 2026<span class="sep">·</span>5 min read</p>
   </div>
   <div class="item">
     <h3><a href="/essays/guide-for-non-engineers/">Contributing Into the Codebase: An AI Guide for Non-Developers</a></h3>
+    <p class="theme">Theme: Practical Guides</p>
     <p class="meta">August 2026<span class="sep">·</span>13 min read</p>
   </div>
   <div class="item">
+    <h3><a href="/essays/all-throttle-no-gear/">All Throttle, No Gear: Why Research Software Engineering Needs Its Own Project Management Model</a></h3>
+    <p class="theme">Theme: Ambiguity and Decision-Making</p>
+    <p class="meta">July 2026<span class="sep">·</span>6 min read</p>
+  </div>
+  <div class="item">
     <h3><a href="/essays/kool-aid/">Drinking the Kool-Aid: One RSE's Take on AI-Facilitated Work</a></h3>
+    <p class="theme">Theme: Personal Journey</p>
     <p class="meta">June 2026<span class="sep">·</span>12 min read</p>
   </div>
   <div class="item">
+    <h3><a href="/essays/on-seniority/">On Seniority</a></h3>
+    <p class="theme">Theme: Status and Seniority</p>
+    <p class="meta">April 2026<span class="sep">·</span>9 min read</p>
+  </div>
+  <div class="item">
     <h3><a href="/essays/letters-to-a-pen-pal/">Letters to a Pre-Scientist</a></h3>
+    <p class="theme">Theme: Personal Journey</p>
     <p class="meta">January to October 2024<span class="sep">·</span>10 min read</p>
   </div>
   <div class="item">
     <h3><a href="/essays/an-rse-is-born/">An RSE Is Born: A Personal Journey into Research Software Engineering</a></h3>
+    <p class="theme">Theme: Personal Journey</p>
     <p class="meta">October 2024<span class="sep">·</span>6 min read</p>
   </div>
   <div class="item">
     <h3><a href="/essays/conference-hacks/">Conference Hacks: From Submission to Success</a></h3>
+    <p class="theme">Theme: Practical Guides</p>
     <p class="meta">October 2024<span class="sep">·</span>6 min read</p>
   </div>
 </section>
@@ -94,5 +125,8 @@
 </footer>
 
 </div>
+</div>
+
+<script src="/essays/gate.js" defer></script>
 </body>
 </html>

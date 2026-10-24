@@ -743,3 +743,13 @@ body.home .wrap { max-width: 1160px; }
 /* ---- Reading time and colophon ---- */
 .meta .sep { margin: 0 .5em; }
 .colophon-note { margin: 0 0 .4rem; }
+
+/* Theme line between an essay's title and its date, styled like the Life
+   page's category labels. */
+.item .theme {
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--accent);
+  margin: .2rem 0 .1rem;
+}
