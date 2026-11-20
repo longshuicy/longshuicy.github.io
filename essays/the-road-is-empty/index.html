@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Road Is Empty · Chen Wang</title>
+<meta name="description" content="A security incident on a research project, AI that makes systems cheaper to defend and to attack, and why restraint becomes a moral question when the barriers disappear.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/assets/logo.png">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="brand" href="/">Chen Wang</a>
+  <nav class="site-nav" aria-label="Sections"><ul><li><a href="/cv/">CV</a></li><li><a href="/projects/">Projects</a></li><li><a href="/play/">Play</a></li><li><a href="/art/">Art</a></li><li><a href="/life/">Life</a></li></ul></nav>
+</header>
+
+<div class="article-head">
+  <p class="byline"><a href="/essays/">Essays</a><span class="sep">·</span>November 2026<span class="sep">·</span>4 min read</p>
+  <h1 class="page-title">The Road Is Empty</h1>
+  <p class="lede">When nobody's watching and the barriers are gone, what's left to stop us?</p>
+</div>
+
+<div class="article-body">
+  <ul class="toc">
+    <li><a href="#excitement">A strange kind of excitement</a></li>
+    <li><a href="#temptation">The temptation of being able to</a></li>
+    <li><a href="#harder-question">The harder question</a></li>
+  </ul>
+
+  <article class="prose">
+    <p>At SC26, we stumbled upon a little coffee shop on the second floor of a hair salon. The owners, a group of ladies, were hanging out and chatting, worlds away from all the AI and supercomputing excitement at the conference. It had been a rough week for technology. Microsoft Outlook and Teams had gone down for more than a day, a communications failure had grounded flights across the country, Chase's online banking had stalled for hours, and the next day iCloud and Apple Pay stopped working. When they found out we were software engineers, one of them jokingly asked why we weren't fixing all these problems with Chase and Apple. Was this doomsday? We laughed and told her there were always smarter people out there working on these things.</p>
+
+    <p>I probably would have forgotten about it, except that later that week I woke up to a message from our security team telling me one of my projects had been compromised. We traced it back to a password leaked on GitHub, which led the attacker to our private container registry. They pulled down every image until they found one with an admin credential baked in back in 2024, and from there they worked their way to a service account, spun up their own compute with access to our shared storage, and set up a tunnel to keep their foothold. None of it was particularly sophisticated, but it was hardly trivial either. It took patience and several steps, each one building on the last. What surprised me most was that anyone had bothered at all. We're a research project serving scientists, with little obvious financial incentive for an attacker, so why go through all that trouble for a two-year-old secret in an obscure research system? I'd been reading about security incidents almost every other day, but they had always felt distant and a bit surreal. Suddenly, one had landed on my desk.</p>
+
+    <h2 id="excitement">A strange kind of excitement</h2>
+    <p>Once the initial shock wore off, I found myself genuinely enjoying the investigation. I used AI extensively to piece together logs, timestamps, code history, and my own knowledge of the system, and it helped me trace the exposure, write scripts to rotate credentials, and prepare fixes much faster than I could have alone. It felt like detective work, and I was pretty impressed with my new AI-powered skills, until an uncomfortable thought occurred to me: if AI made defending this easy for me, how easy was it making attacking for someone else? I have no evidence that our attacker used AI, but the broader implication is hard to ignore. Expertise, patience, and persistence used to be substantial barriers to hacking. AI doesn't eliminate the need for expertise, but it makes attempting things that were previously out of reach considerably cheaper.</p>
+
+    <h2 id="temptation">The temptation of being able to</h2>
+    <p>This made me wonder whether we've been confusing lack of capability with good behavior. Think about jaywalking. Sometimes people cross against the signal not because they're in a hurry, but because the road is empty, nobody is watching, and they simply can. Hacking is obviously a different moral category, but I wonder whether the same temptation applies when technical barriers disappear. I could feel a little of it myself. Discovering what AI could do was exciting, and I kept wanting to push further, not because I intended to harm anyone, but because I was curious. There's nothing wrong with curiosity, and legitimate security research is valuable, but the boundary between exploring a capability and using it without permission suddenly feels much more consequential. <strong>Perhaps some of the restraint we've attributed to good judgment was simply a lack of opportunity.</strong></p>
+
+    <p>Rotating credentials, tightening permissions, and holding AI providers accountable all matter, but they don't quite address what bothers me. AI is making systems cheaper to defend and cheaper to attack at the same time, and at some point that stops being purely a technical problem.</p>
+
+    <h2 id="harder-question">The harder question</h2>
+    <p>I've been reading a lot about trustworthy AI lately, and much of the discussion focuses on making AI systems safer, more transparent, and better aligned with human values. But what about the humans using them? If AI gives ordinary people capabilities that previously required years of expertise, are we equally prepared to exercise the judgment that comes with them? We've spent years worrying about AI replacing human skills, but the philosopher Shannon Vallor has warned of something subtler: moral deskilling, the idea that when technology handles more of our choices, we get less practice making them well. When technology makes action effortless, do we become less practiced at questioning whether the action is justified in the first place? I don't think AI creates bad people, nor do I believe the world was more ethical simply because fewer people had the skills to do harm. But AI makes our moral choices more consequential, and the distance between curiosity and action has become much shorter.</p>
+
+    <p>The coffee shop owner was joking about doomsday, and I certainly don't think we're there. If anything, the incident made me more optimistic about what a small team can accomplish with AI. We found the problem, fixed it, and learned quite a bit along the way. But what stayed with me wasn't the attacker. It was how damn easy all of it had become, on both sides. For a long time, security rested partly on the fact that most people couldn't do much harm even if they wanted to. That's fading. When the barriers disappear, the question shifts from who <em>can</em> to who <em>will</em>, and that makes it a moral problem as much as a technical one. The road is empty now, and the only thing left at the crosswalk is whether we choose to wait.</p>
+  </article>
+</div>
+
+<footer>
+  <p class="colophon-note">Written with AI assistance. See the <a href="/essays/#colophon">colophon</a>.</p>
+  <p>Champaign, Illinois. <a href="mailto:cwang138@illinois.edu">cwang138@illinois.edu</a></p>
+</footer>
+
+</div>
+</body>
+</html>
